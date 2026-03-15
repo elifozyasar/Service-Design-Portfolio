@@ -1,0 +1,1487 @@
+
+
+===== Page 1 =====
+
+In t ern ship R epor t
+
+St u den t n ame : Eli f Ö zy a ş ar ( 1 7 7 7 9 2 0 )
+T e acher c oach : J oep Fr en s
+C omp an y C oach : Ba sti a an v an Hou t
+Cli en t: E dgar s T r eim anis
+
+1
+P i c t ur e tak en b y V olk an S arp T op aloğlu
+
+
+===== Page 2 =====
+
+Colophon
+
+
+
+
+
+
+
+ Aut hors
+
+ Elif Özy aşar
+
+
+ Design and la y out 
+
+ Elif Özy aşar
+
+
+ Compan y
+
+ TSG gr oup 
+ F urkapas 8 562 4 MD Eindho v en  
+
+
+
+This r epor t is based on confidential data of T otal Suppor t Gr oup (TSG) and Bat hBobber . It is only a v ailable t o be r e view ed b y t he 
+assessors and t he members of t he e xamination committ ee. No par t of t his r epor t ma y be r epr oduced or transmitt ed in an y f orm or 
+b y an y means, electr onical or mechanical, including phot ocop ying, r ecor ding, or b y an y inf ormation st orage and r etrie v al syst em, 
+wit hout permission fr om t he aut hors.
+2
+
+
+===== Page 3 =====
+
+Cont ent s
+
+Compan y and client description......................................................................................... 4
+Intr oduction.......................................................................................................................... 4
+Goals and De v elopment....................................................................................................... 5
+Design pr ocess.................................................................................................................... 8
+   Planning.............................................................................................................................. 8 
+   R esear ch Phase................................................................................................................. 8
+   Analysis Phase.................................................................................................................. 9 
+     List Of R equir ement s...................................................................................................... 9 
+     Concept Cr eation............................................................................................................. 9 
+     Design considerations document.................................................................................. 11  
+   User t est s........................................................................................................................... 12
+     Usability t est : Operating t he de vice............................................................................. 12
+      Er gonomics t est............................................................................................................... 13
+     UI t est: Ring visualizations.............................................................................................. 14 
+     Risk analysis.................................................................................................................... 14
+     UI e xploration.................................................................................................................... 15
+     Int eraction e xploration..................................................................................................... 15
+De v elopment And R ealization............................................................................................ 16
+   Pr ogramming t he whole UI.............................................................................................. 16
+   Making matrix co v ers........................................................................................................ 17
+   Soldering........................................................................................................................... 17
+   DFM/DF A Analysis............................................................................................................ 17
+   Windo w model.................................................................................................................. 18
+   UI flo w t est......................................................................................................................... 18
+Final Pr ot otype...................................................................................................................... 19
+R eflection...............................................................................................................................20
+Ackno wledgement s..............................................................................................................21
+R ef er ences.............................................................................................................................21
+Appendices............................................................................................................................22
+
+
+
+
+
+3
+
+
+===== Page 4 =====
+
+C omp an y and cli en t des cr ip ti on
+T SG
+
+T o tal S uppor t Group ( T SG ) is a D u t ch des i gn agenc y in E indho v en , Ne therlands , 
+pr ac ti c ing f or o v er 3 0 y e ar s . T SG h a s w ork ed w i th s e v er al cli en t s and f or v ar i ou s 
+m ark e t s inclu ding ener gy , mob ili t y , spor t ,  hi gh - t ech s y st em s and mor e t o 
+de v elop and r e ali z e produ c t s .  The c omp an y enc omp a s s es di f f er en t 
+dep ar tmen t s from s o f tw ar e t o engineer ing and produ c t des i gn . The produ c t 
+des i gn / engineer ing dep ar tmen t , wher e I di d m y in t ern ship , h a s a holisti c v i e w o f 
+des i gn fi elds and ac ti v i ti es whi ch inclu des U X / UI des i gn , produ c t engineer ing, 
+embedded s o f tw ar e , pro t o t yp ing, and indu str i ali z a ti on . A s I w an t ed t o 
+e xper i enc e the r e ali z a ti on ph a s e in a c omp an y s e t ting, T SG w a s a s u i table 
+choi c e .
+
+F or m y a s s i gnmen t , I w ork ed dir ec tly w i th a cli en t , br inging a uni qu e s e t o f 
+ch allenges th a t di f f er ed from m y pro j ec t s a t uni v er s i t y .  Althou gh w ork ing w i th a 
+spec i fi c cli en t , I u s ed the fr ame w ork s and gu i danc e pro v i ded b y T SG in m y 
+des i gn proc es s .  
+
+
+
+
+                                                                                      F i gur e 1 : L ogo o f T SG r e tr i e v ed from 
+                                                                                        h t tps :/ / algemeen . t s ggroup .nl/
+
+B a th Bobb er
+I w ork ed w i th the c omp an y Ba thbobber o wned b y E dgar s T r eim anis dur ing m y 
+in t ern ship t o des i gn a sm ar t i c e b a th timer thermome t er . The produ c t is 
+in t ended t o be u s ed dur ing i c e b a th s / c old plunges bo th indoor s and ou t door s . 
+A s the des i gn and the c onc ep t h ad e v olv ed t o a c er tain degr ee , I w ork ed on 
+de v elop ing i t f ur ther and r e ali z ing the MVP .
+4
+In tr o du c t i on
+
+Ba thbobber aim s t o pro v i de an ac c es s ible w a y o f tr ack ing i c e b a th 
+s es s i on s and m ak e the proc es s e a s i er f or thos e who r egularly tak e i c e 
+b a th s and/ or c old plunges . The s y st em inclu des bo th a ph y s i c al des i gn 
+and an appli c a ti on . I f oc u s ed on de v elop ing the ph y s i c al des i gn whi ch is 
+u s ed dur ing the i c e b a th s es s i on s , plac ed on t op o f the w a t er , c ollec ting 
+w a t er t emper a t ur e da ta a s w ell a s tr ack ing the dur a ti on o f the s es s i on . 
+The de v i c e is oper a t ed u s ing the ro tary enc oder on t op , m ak ing i t 
+pos s ible t o n a v i ga t e be tw een s cr een s and c on trol the de v i c e .
+
+The des i gn w a s pr e v i ou sly de v eloped b y the cli en t t o an e xt en t [F i gur e 2 ]. 
+Ho w e v er , w i th the ch anges in the r equ ir emen t s , inclu ding c ost s , u s ab ili t y 
+and m anu f ac t ur ab ili t y , i t w a s dec i ded t o go throu gh a r edes i gn . Pr im ar ily , 
+L CD displa y needed ch anging. My des i gn ch allenge w a s e xplor ing and 
+de v elop ing the u s er in t er f ac e and in t er ac ti on w i th the ph y s i c al de v i c e , 
+f oc u s ing on the da ta th a t w ill be c ommuni c a t ed and ho w .  I aimed t o 
+i den ti f y ar e a s f or impro v emen t in the c urr en t des i gn and the in t er ac ti on , 
+propos ing s olu ti on s . My ta sk s f or the pro j ec t inclu ded des i gn r es e ar ch , 
+an aly z ing the tar ge t group and the r equ ir emen t s o f the cli en t , 
+pro t o t yp ing, de v elop ing elec troni cs , progr amming and mor e , whi ch I w ill 
+f ur ther dis c u s s in this r epor t .
+
+F i gur e 2 : 3D Model m ade b y E dgar s T r eim anis
+
+
+===== Page 5 =====
+
+Goals and D e v elopmen t
+I s e t goals f or m y s elf t o achi e v e dur ing m y in t ern ship whi ch I then tr an sla t ed in t o 
+planning and ta sk s t o sh ar e w i th the cli en t . This helped t o c ommuni c a t e m y 
+e xpec ta ti on s t o the cli en t . I k ep t m y pro f es s i on al i den ti t y and v is i on while 
+f ormula ting  m y goals t o gain sk ills  I w an t t o h a v e a s a des i gner .
+
+Cr e a t i v i ty & a e s the t i cs
+
+ It w a s m y goal t o e xp and the w a y s I c ommuni c a t e m y i de a s and enh anc e m y 
+cr e a ti v i t y . I w an t ed t o pr ac ti c e S oli dW ork s and u s e i t t o v is u ali z e m y i de a s . I s e t a 
+mor e tangible goal and aimed t o cr e a t e a t le a st one de tailed 3D model o f one o f 
+m y i de a s , s u i table f or 3D pr in ting u s ing S oli dW ork s . This w a s als o a goal f or the 
+T e chnolo gy & R e ali z a t i on ar e a. I achi e v ed this a s I cr e a t ed multiple models f or 
+m y u s er t est s whi ch w er e all 3D pr in t ed.  I w ork ed w i th the pr e -m ade sk e t ches 
+from the cli en t and h ad the oppor t uni t y t o le arn and implemen t c omple x 
+s ur f ac e modeling t ools t o enh anc e the e x isting des i gn . This ti ed in t o m y 
+de v elopmen t in t echnology and r e ali z a ti on ar e a .  
+
+I addi ti on ally f oc u s ed on UI des i gn , finding the best w a y s t o c ommuni c a t e w i th 
+u s er s throu gh the displa y , and op timi z ing the in t er ac ti on . This ta sk helped me 
+de v elop in m a th da t a & c ompu t in g and u s er & s oc i e ty .
+
+Un f or t un a t ely , I di d no t achi e v e m y goal o f impro v ing in t echni c al sk e t ching. I 
+h ad s e t a goal t o cr e a t e a t le a st 3 sk e t ches th a t I c an c on fi den tly sho w c a s e in m y 
+por t f oli o . Althou gh I di d u s e sk e t ching t o c ommuni c a t e m y i de a s t o the cli en t , I 
+di dn ’ t pr ac ti c e m y sk ills enou gh t o impro v e a s I w an t ed. I plan t o pu t mor e e f f or t 
+in this s ub j ec t and u s e sk e t ching in m y F BP f or i de a ti on and v is u ali z a ti on . 
+
+
+
+T e chnolo gy & R e ali z a t i on
+
+T echnology & r e ali z a ti on h a s alw a y s been an ar e a th a t I ga v e s i gni fi c an t 
+impor tanc e t o a s t echnology is an impor tan t p ar t o f m y des i gner i den ti t y . 
+It is cr u c i al f or m y des i gn s t o be up t o da t e and adap t t o the w orld.  A s I 
+en v is i on w ork ing in a t echnology - or i en t ed fi eld, i t w a s one o f m y b i ggest 
+goals t o be mor e c on fi den t in u s ing elec troni cs in m y des i gn s .
+
+F i gur e 3 : S ur f ac e modelling 
+F i gur e 4 : UI e xplor a ti on s o f 
+t emper a t ur e i c on
+F i gur e 5 : UI e xplor a ti on o f the ini ti al s cr een
+5
+
+
+===== Page 6 =====
+
+I planned t o p ar ti ally achi e v e this goal dur ing m y in t ern ship b y w ork ing w i th a t 
+le a st one c omponen t I am no t f amili ar w i th t o cr e a t e a f unc ti oning des i gn . I 
+achi e v ed this goal and w en t be y ond b y u s ing 6 c omponen t s and cr e a ting a 
+f unc ti oning s y st em . W ork ing w i th all o f thes e ne w c omponen t s helped me s ee 
+all the st eps i t tak es t o cr e a t e an ec os y st em in whi ch all di f f er en t da ta is being 
+u s ed, help ing me de v elop in m a th da t a & c ompu t in g a s w ell.
+
+A ddi ti on ally , I le arned abou t wh a t t o be c ar e f ul o f when 3D modelling inclu ding 
+t oler anc es , ho w thr e ads w ork in 3d pr in ting, whi ch s ur f ac e t o pr in t on t o ge t the 
+best r es ult s , and pr in ting speed. I am no w mor e c on fi den t in u s ing 3D modelling 
+and S oli dw ork s f or m y f u t ur e pro j ec t s .
+U s er & S oc i e ty
+
+It w a s m y goal t o e xper i enc e u s er in v olv emen t in a r e al li f e des i gn proc es s , 
+di f f er en t from wh a t I am u s ed t o a t uni v er s i t y . A s the des i gn h a s ne v er 
+been t est ed be f or e , I go t t o t est di f f er en t a spec t s o f i t and planned 
+multiple u s er t est s f or s ub j ec t s o f UI, u s ab ili t y , er gonomi cs and U X . 
+Althou gh I w a sn ' t able t o r e ach the tar ge t group , I tr i ed ge t ting in t ou ch 
+w i th them . I c on tac t ed i c e b a th w ork shop o wner s , j oined F ac ebook groups 
+and em ailed in str u c t or s . I addi ti on ally w an t ed t o be a s clos e t o u s er s ’ 
+per spec ti v e ther e f or e I di d i c e b a th s m y s elf whi ch ga v e me an i de a o f wh a t 
+k ind o f t est s t o c ondu c t . D u e t o the c ir c um stanc es , I c ondu c t ed m y u s er 
+t est s w i th c olleges . F or thes e u s er t est s I c u st omi z ed the en v ironmen t and 
+str u c t ur ed the t est s t o m ak e them r e alisti c .
+
+S inc e I di dn ’ t ge t t o t est the des i gn w i th the tar ge t group , I beli e v e I di dn ’ t 
+ge t t o e xper i enc e u s er t esting in a c omp an y s e t ting a s I en v is i oned. 
+Ho w e v er ,  I w a s able t o s ee ho w u s er t est s in fl u enc e des i gn dec is i on s o f a 
+r e al produ c t .
+F i gur e 6 : Elec troni cs o f the fin al produ c t F i gur e 7 : Elec troni cs bu ilt f or the u s er t est s
+F i gur e 9 : F in al UI fl o w t est s e t up
+F i gur e 8 :  3D pr in t er a t T SG
+6
+
+
+===== Page 7 =====
+
+Ma th D a t a & C ompu t in g
+
+S imilar t o t echnology and r e ali z a ti on , this ar e a is als o cr u c i al f or me in 
+ge t ting clos er t o the des i gner I w an t t o bec ome . Ini ti ally , I thou gh t th a t I 
+w ouldn ’ t ge t t o f oc u s on progr amming dur ing this in t ern ship bu t this 
+pro v ed t o be wrong. My goal w a s t o cr e a t e a f unc ti oning c ode and 
+gr adu ally u s e les s e xt ern al s our c es f or help . I achi e v ed this goal b y w ork ing 
+on progr amming the UI and all elec troni cs w i th Ar du ino IDE . I ga ther ed 
+v alu able in f orm a ti on abou t h ar dw ar e progr amming th a t I h adn ’ t kno wn 
+ini ti ally s u ch a s sw i t ch c a s es , b i tm app ing and while loops . I go t help from 
+s our c es s u ch a s Ch a tGP T , f or um s , e x ample c odes bu t this need decr e a s ed 
+b y time , a s I h ad aimed.
+ 
+It w a s ano ther goal t o u s e da ta c ollec ti on and v is u ali z a ti on in m y des i gn 
+proc es s ho w e v er I di dn ’ t achi e v e this goal a s I w an t ed. I m ade UI fl o w s o f 
+the da ta th a t w ill be c ommuni c a t ed ho w e v er most o f the da ta w ould be 
+v is u ali z ed throu gh the appli c a ti on whi ch w a s ou t o f s c ope . Althou gh I 
+i de a t ed on the k inds o f da ta th a t c ould be sho wn[F i gur e 1 1 ], I w ould h a v e 
+w an t ed t o e xplor e the implemen ta ti on o f da ta in a deeper le v el. I w an t t o 
+f oc u s mor e on the u s e o f da ta dur ing m y F BP .
+B u sine s s & En tr epr eneur sh ip
+
+This in t ern ship w a s a gr e a t oppor t uni t y f or me t o de v elop in the 
+bu s ines s & en tr epr eneur ship ar e a a s I go t t o w ork on a r e al des i gn 
+proc es s w i th a r e al cli en t . It w a s m y goal t o e xper i enc e the des i gn 
+proc es s in a c omp an y s e t ting and w ork t o w ar ds m ak ing the des i gn 
+c on s i der ing the bu s ines s a spec t s inclu ding r isk s , c ost s .
+
+D ur ing the pro j ec t I w ork ed on multiple doc umen t s t o an aly z e the 
+des i gn and find ar e a s f or impro v emen t inclu ding r isk an aly s is in whi ch I 
+doc umen t ed the r isk s and ho w the y c an be emi t t ed. I w ork ed on a 
+f unc ti on di agr am wher e I i den ti fi ed wh a t c omponen t s ar e nec es s ary t o 
+f ulfill r equ ir emen t s and  br ain st ormed w i th the cli en t t o m ak e thes e a s 
+achi e v able a s pos s ible . I look ed in t o the e xpen s es o f in j ec ti on molding 
+and dis c u s s ed w i th e xper i enc ed c olle agu es abou t ho w t o m ak e the 
+c urr en t des i gn a s m anu f ac t ur able and che ap a s pos s ible . A ddi ti on ally , I 
+j oined in the c ir c ular i t y mee tings o f T SG and w ork ed on cr e a ting an 
+in t ern ship a s s i gnmen t f or the c omp an y .  
+   
+F i gur e 10 : P ar t o f the fin al UI c ode
+F i gur e 1 1 : P ar t o f the da ta v is u ali z a ti on e xplor a ti on
+7
+
+
+===== Page 8 =====
+
+Plann in g
+
+In the beginning o f the in t ern ship per i od. I h ad mee tings w i th the 
+c omp an y c oach t o dis c u s s m y goals and fi t them in t o a plan . By time , this 
+e v olv ed in t o the la t est v er s i on [F i gur e 12 ].
+While cr e a ting the planning I i den ti fi ed spec i fi c ta sk s I w ould lik e t o le arn 
+abou t . I Iden ti fi ed the t op i cs the y w ould inclu de and st eps I w ould tak e t o 
+achi e v e them .
+
+The planning w en t ac c or dingly un til the u s er t est per i od. S inc e the des i gn 
+w a sn ’ t f ully de v eloped, di f f er en t p ar t s w er e t est ed s ep ar a t ely and ther e 
+w a s a c ir c ular proc es s o f progr amming, pro t o t yp ing, i de a ti on and t esting. 
+Ultim a t ely , the c onc ep t u ali z a ti on ph a s e inclu ded p ar t s o f the r e ali z a ti on 
+ph a s e whi ch I r e fl ec t ed on while up da ting the planning ( R e fl ec ti on and 
+ini ti al planning c an be f ound in appendi x A ) . I le arned th a t r e fl ec ting on m y 
+planning c an help me adj u st m y f u t ur e st eps ac c or ding t o m y goals .
+R e s e ar ch Ph a s e
+
+The ini ti al r es e ar ch ph a s e and proo f o f c onc ep t w a s alr e ady c omple t ed 
+b y the cli en t . His w ork inclu ded  m ark e t r es e ar ch , benchm ark ing, 
+per s on a m app ing, f unc ti on list , in t er f ac e fl o w and bu s ines s plan . 
+L ook ing in t o thes e doc umen t s a s an ou t s i der , I i den ti fi ed t op i cs th a t 
+h a v en ’ t been addr es s ed r egar ding ho w the de v i c e w ould f unc ti on in 
+c er tain s i t u a ti on s . This cr e a t ed room f or dis c u s s i on s .
+ 
+T o h a v e a stronger under standing o f the c onc ep t , I r e ad blogs and 
+ar ti cles abou t the e f f ec t s o f i c e b a th s  and w a t ched v i deos t o 
+under stand the c ommon beh a v i or s o f the tar ge t group [ 1 , 2 , 3 , 4 , 5 ]. 
+A ddi ti on ally , I m ade r es e ar ch on ho w being c on s c i ou s o f the time c an 
+a f f ec t the per c ep ti on dur ing unc om f or table c ir c um stanc es[ 6 , 7 ]. T o 
+gr a sp the u s er ' s per spec ti v e , I tr i ed i c e b a th s w i th a fr i end and w e 
+r e fl ec t ed on our e xper i enc e . [F i gur e 1 3 ]. One o f the i de a s this 
+r e fl ec ti on led t o w a s hi ding the timer dur ing the s es s i on s and u s ing the 
+led r ing a s distr ac ti on .
+   
+F i gur e 12 : Ini ti al planning
+F i gur e 1 3 : R e fl ec ti on from m y i c e b a th 
+Proc es s
+8
+
+
+===== Page 9 =====
+
+F i gur e 1 4 : Ic eb a th s e t up
+F i gur e 1 5 : per s on a s
+An aly s is Ph a s e
+
+I c on tinu ed m y an aly s is ph a s e b y cr e a ting u s er s c en ar i os and per s on a s . I 
+cr e a t ed elabor a t ed s c en ar i os t o e xplor e the in t er ac ti on , s ee ar e a s f or 
+impro v emen t in u s er e xper i enc e . I inclu ded per s on a s [F i gur e 1 5 ] w i th 
+di f f er en t ch ar ac t er isti cs , oc c up a ti on s , fin anc i al sta t u s , goals and v alu es . I 
+espec i ally emph a s i z ed their goals a s this is an impor tan t v ar i able 
+
+This e x er c is e helped me s ee th a t the s c en ar i os di f f er ed from e ach o ther 
+depending i f the i c e b a th is done indoor s and ou t door s . I i den ti fi ed ar e a s f or 
+impro v emen t , addi ti on al f e a t ur es th a t c an be inclu ded and the r isk s w i th 
+the c urr en t des i gn . This w a s one o f the deli v er ables I sh ar ed w i th the cli en t . 
+S ome o f the i de a s th a t w er e inclu ded in the des i gn la t er on ar e 
+In f orming the u s er s o f lo w t emper a t ur e throu gh v is u al
+S cr een fr ee z e f e a t ur e t o r e ad the t emper a t ur e when m a tr i x isn ’ t v is ible 
+I s a w the bene fi t o f m ak ing per s on a s a s de tailed a s pos s ible . It helped me 
+look a t the ta sk s from a di f f er en t per spec ti v e a s s omeone who doesn ’ t do 
+i c e b a th s . I aim t o u s e this t echni qu e mor e in m y f u t ur e pro j ec t s .
+L i s t Of R e qu ir emen t s
+
+A f t er w e dis c u s s ed the in s i gh t s from u s er s c en ar i os , I star t ed on 
+cr e a ting the L ist o f r equ ir emen t s (L o R ) in whi ch I doc umen t ed 
+r equ ir emen t s th a t the produ c t needs t o mee t inclu ding f unc ti on , 
+c ondi ti on o f u s e , m a t er i al, er gonomi cs , standar ds / t est s . I u s ed the e x c el 
+t empla t e o f T SG [ Appendi x B ]. 
+
+The r equ ir emen t s c ommuni c a t ed b y the cli en t opened a room t o 
+dis c u s s des i gn pos s ib ili ti es a s the c urr en t des i gn needed impro v emen t .
+Di f f er en tly from the or i gin al u s e o f t empla t e , I inclu ded r equ ir emen t s 
+th a t ar e no t only from an engineer ing poin t o f v i e w bu t als o u s er 
+e xper i enc e and aesthe ti cs [F i gur e 16 , 1 7 ].
+F i gur e 16 : r equ ir emen t e x ample
+9
+
+
+===== Page 10 =====
+
+S inc e thes e r equ ir emen t s w er e no t s imple t o me a s ur e , I dec i ded t o m ak e a 
+r epor t o f all des i gn c on s i der a ti on s , t est r es ult s and r e a s oning behind e ach 
+dec is i on . This doc umen t  w a s v ery help f ul in k eep ing tr ack o f wh a t ch anged 
+and wh y , thu s w a s u s e f ul in wr i ting this r epor t . I w ill w ork on a s imilar doc umen t 
+when doing m y F BP .
+ 
+ 
+C onc ep t cr e a t i on
+
+A f t er an aly z ing the list o f r equ ir emen t s and dis c u s s i on s w i th cli en t s , I i den ti fi ed 
+ar e a s wher e the c urr en t des i gn c an be impro v ed t o m a t ch the r equ ir emen t s . I 
+br ain st ormed and m ade sk e t ches o f m y i de a s t o c ommuni c a t e w i th the cli en t . 
+V is ib ili t y o f the s cr een from di f f er en t distanc es [ fi gur e 18 ]
+ 
+In the ini ti al des i gn , the s cr een w a s no t angled t o mee t the e y e . I ther e f or e 
+m ade sk e t ches , models and i de a t ed on m ak ing the s cr een 45 degr ee angled in 
+a w a y th a t is v is ible from di f f er en t distanc es . F i gur e 1 9 and 2 0 sho w s one o f m y 
+i de a s .
+ 
+F i gur e 1 9 : Sk e t ches o f the angled des i gn
+F i gur e 2 0 : 3D Model o f the angled 
+des i gn
+F i gur e 18 : R equ ir emen t f or v is ib ili t y
+F i gur e 2 1 : An aly s is o f the angled des i gn
+F i gur e 2 2 : dr a w ing m ade b y cli en t  E dgar s 
+T r eim anis
+F i gur e 2 3 : D e v i c e z oomed in from e y e le v el
+F i gur e 1 7 :  r equ ir emen t e x ample
+A t the end i t w a s dec i ded no t t o go w i th this des i gn du e t o s i z e . The cli en t 
+propos ed t o k eep the des i gn the s ame bu t plac ing w ei gh t s in s i de t o m ak e 
+i t angle when i t ' s fl oa ting [F i gur e 2 2 ]. I t est ed this i de a w i th a 3D model I 
+h ad in h and. The t est pro v ed th a t the s cr een w ould be v is ible from all 
+le v els e v en ne xt t o f ee t .
+10
+
+
+===== Page 11 =====
+
+Ho w e v er , this des i gn di d no t h a v e cle ar a f f or danc es t o s u ggest th a t i t should 
+be pos i ti oned in an angled w a y , whi ch mi gh t cr e a t e c on f u s i on f or the u s er . I 
+br ain st ormed on this t op i c and m ade a des i gn th a t is rounded on one s i de , 
+br inging a f f or danc e [F i gur e 2 4 ].
+F i gur e 2 4 : Sk e t ch o f the des i gn w i th rounded edge
+F i gur e 25 : R equ ir emen t f or oper a ti on
+F i gur e 2 6 : C on t en t s o f the des i gn c on s i der a ti on s 
+doc umen t
+Thes e e xplor a ti on s sho w ed me the thou gh t proc es s and all o f the 
+di f f er en t a spec t s th a t in fl u enc e the sh ape dec is i on s . I r e ali z ed ho w 
+limi ting i t c an be t o w ork around a pr em ade sh ape . It w a s a v alu able 
+e xper i enc e th a t pr ep ar ed me f or m y f u t ur e c ar eer . Upon dis c u s s i on s w i th 
+the cli en t , i t w a s dec i ded no t t o st eer a w a y from the des i gn s i gni fi c an tly . 
+Ther e f or e , thes e i de a ti on s w er e pu t on hold
+Oper a ting the de v i c e on t op o f w a t er and w i th s ingle h and [F i gur e 25 ]
+Ano ther r equ ir emen t th a t w a sn ' t f ully me t w a s oper a ting the de v i c e 
+e a s ily on t op o f w a t er w i th a s ingle h and. D u e t o the bu o y anc y pr inc iple , 
+i t w a s ch allenging t o pu sh and ro ta t e the bu t t on w i th a s ingle h and. 
+Ther e f or e , I m ade u s er t est s and i de a t ed on w a y s t o m ak e this mor e 
+c om f or table whi ch I w ill f ur ther pr es en t in the u s er t est s s ec ti on .
+
+
+D e si gn C on si der a t i on s D oc umen t
+
+In m y des i gn c on s i der a ti on s doc umen t , I m ade ch ap t er s f or f e a t ur es 
+th a t w er e being e xplor ed, and whi ch dec is i on s w er e tak en f or wh a t 
+r e a s on . I inclu ded li t er a t ur e r es e ar ch , u s er t est plan s t o v ali da t e the 
+f e a t ur es . I h a v e als o wr i t t en abou t the r es ult s o f t est s th a t w er e done and 
+the des i gn dec is i on s the y led t o .
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+11
+
+
+===== Page 12 =====
+
+I planned multiple u s er t est s t o e xplor e and v ali da t e des i gn dec is i on s . The 
+ch allenge I f ac ed dur ing u s er t esting w a s m y lack o f c on tac t w i th the 
+tar ge t group , I w a s only able t o t est w i th the c olleges . This r es ult ed in 
+p ar ti ally unr eli able r es ult s a s the c on t e xt o f i c e b a th s w a s lack ing. I le arned 
+ho w t o tailor a st ory around the t est s and br ing probes t o s uppor t the 
+st or i es [F i gur e 2 7 , 2 8 ].
+
+I r e ali z ed th a t the b i ggest di f f er enc e o f c ondu c ting u s er t est s in a 
+c omp an y s e t ting is ho w the r es ult s in fl u enc e des i gn dec is i on s . U s er 
+e xper i enc e , thou gh impor tan t , c an be ou tw ei ghed b y c on s i der a ti on s o f 
+c ost and time . A s most c omp ani es o f t en w ork w i th their tar ge t u s er s , I 
+di dn ' t e xper i enc e the r e al di f f er enc e ther e . I r ec ogni z e th a t m y t est s h ad 
+shor t c omings du e t o the p ar ti c ip an t pro file and i c ommuni c a t ed this t o 
+the cli en t . I k ep t this in mind while an aly z ing the ou t c omes .
+
+U s ab ili ty t e s t : Op er a t in g the de v i c e
+
+A s I w an t ed t o t est ho w u s er s w ould oper a t e the de v i c e w i th a s ingle 
+h and, I c ondu c t ed a t est on this t op i c . I t est ed the de v i c e in 3 s c en ar i os , 
+ou t s i de o f w a t er , on t op o f w a t er and on t op o f w a t er while p ar ti c ip an t s 
+ar e in a b a th pos i ti on . I ga v e all p ar ti c ip an t s , 8 in t o tal, the de v i c e , t old 
+them th a t i t is a sm ar t i c e b a th timer and a sk ed them t o hold and 
+oper a t e the de v i c e w i thou t an y e xplan a ti on . L a t er the p ar ti c ip an t s w er e 
+in t erv i e w ed. [ Appendi x C f or the t est planning and e x ample in t erv i e w ].
+F i gur e 2 7 : S e t up o f r ingli gh t t est F i gur e 2 8 : S e t up o f UI fl o w t est
+F i gur e 2 9 : U s ab ili t y t est 
+F i gur e 3 1 : R es ult s o f the u s ab ili t y t est 
+F i gur e 3 0 : U s ab ili t y t est 
+This t est sho w ed me ho w s imple t est s wher e p ar ti c ip an t s h a v e li t tle 
+in f orm a ti on c an br ing in t er esting r es ult s . I spec i fi c ally di dn ’ t f or es ee th a t 
+all p ar ti c ip an t s w ould in t u i ti v ely tak e the de v i c e ou t o f w a t er t o oper a t e i t . 
+Thes e r es ult s helped t o star t a v alu able dis c u s s i on w i th the cli en t f or 
+des i gn ch anges .
+12
+U s er T est s
+
+
+===== Page 13 =====
+
+S ur f a c e mo dellin g f or er gonom i cs
+
+A s the cli en t w a s v ery p a s s i on a t e abou t the c urr en t des i gn , I dec i ded t o 
+implemen t f e a t ur es t o m ak e i t mor e c om f or table t o oper a t e w i thou t 
+ch anging i t s i gni fi c an tly . Althou gh this w a s limi ting, i t helped me de v elop 
+m y c ooper a ti on sk ills and w ork t o w ar ds m y goals in cr e a ti v i t y and 
+aesthe ti cs .
+ 
+I i den ti fi ed wher e p ar ti c ip an t s mostly pos i ti on their finger s and wh a t p ar t s 
+cr e a t e problem s in t erm s o f gr ip . Throu gh this I cr e a t ed 2 v er s i on s o f 
+finger plac emen t s . One in the sh ape o f a cr a t er [F i gur e 3 2 , 33 ] and ano ther 
+o f ar c slo t s , s imilar t o a finger sh ape [F i gur e 34 , 35 ]. Bo th des i gn s brou gh t 
+c urv a t ur e whi ch c ould m ak e i t e a s i er t o gr ip the de v i c e from the s i des . 
+C on s equ en tly , I go t f amili ar w i th s ur f ac e modelling whi ch pro v ed t o be 
+v ery ch allenging and stimula t ed m y de v elopmen t in t echnology & 
+r e ali z a ti on and cr e a ti v i t y & aesthe ti cs .
+ 
+The cli en t w a s in t er est ed in ho w he c ould tr an sla t e thes e in t o his model in 
+f u s i on 3 6 0 whi ch I w ork ed on and m ade the s ame model I m ade on 
+S oli dW ork s . This ta sk helped me s ee the di f f er enc es in modelling w i th 2 
+s o f tw ar es . I f ound S oli dW ork s t o be mor e s u i table f or s ur f ac e modelling a s 
+ther e w er e mor e t ools . 
+Er gonom i cs t e s t
+
+I dec i ded t o t est the 2 des i gn s t oge ther w i th the or i gin al des i gn . 
+F or this t est , I c on tac t ed 8 c olle agu es , di f f er en t from the pr e v i ou s 
+p ar ti c ip an t s . The u s er t est s helped me bec ome mor e f amili ar w i th 
+m y c olle agu es and pr ac ti c e m y c ommuni c a ti on sk ills .   [ Appendi x 
+D f or the t est plan ]
+ 
+F i gur e 3 2 : Cr a t er des i gn pro t o t ype
+F i gur e 34 : Ar c slo t des i gn model
+F i gur e 3 6 : Er gonomi cs t est w i th c olle agu e F i gur e 3 7 : Er gonomi cs t est w i th c olle agu e
+F i gur e 35 : Ar c slo t des i gn pro t o t ype
+F i gur e 33 : Cr a t er des i gn model
+13
+T able 1 : Er gonomi cs t est r es ult s
+
+
+===== Page 14 =====
+
+Cli en t dec i ded t o pu t this e xplor a ti on on hold a s he h ad a pr e f er enc e o v er 
+f oc u s ing on the MVP . A s I beli e v ed th a t i t w a s impor tan t t o e xplor e this 
+s ub j ec t f ur ther , I dec i ded t o sho w c a s e the pro t o t ype th a t m y u s er t est s 
+led t o , dur ing m y fin al a s s es smen t . I w ork ed f ur ther on i t b y implemen ting 
+ar c slo t s in the bo t t om a s w ell whi ch ali gned w i th the finger plac emen t o f 
+the u s er s dur ing t est s and their f eedb ack [F i gur e 3 9 ].
+F i gur e 3 9 : Up da t ed ar c slo t model
+F i gur e 40 : r ing v is u ali z a ti on s t est s e t up
+F i gur e 4 1 : r isk an aly s is
+Althou gh I beli e v ed th a t a des i gn ch ange th a t is mor e in t u i ti v e c ould be 
+bene fi c i al, I s a w th a t this w a s no t s ome thing th a t the cli en t c urr en tly 
+w an t ed t o f oc u s on . Ho w e v er , I w a s still able t o e xplor e m y i de a s and 
+pr es en t ed a proo f th a t the des i gn needs ch anges t o mee t the 
+r equ ir emen t s
+
+ 
+R i sk an aly si s
+
+I w ork ed on r isk an aly s is [F i gur e 4 1 ] whi ch is a doc umen t f or i den ti f y ing 
+po t en ti al r isk s th a t c an nega ti v ely a f f ec t the u s er s and ther e f or e the 
+bu s ines s . W ork ing on this an aly s is w a s a gr e a t w a y t o de v elop in the 
+ar e a o f bu s ines s and en tr epr eneur ship . I u s ed the R isk an aly s is 
+t empla t e o f T SG . I added ano ther s ec ti on th a t I thou gh t w a s needed, 
+‘Implemen ta ti on s o f the minimi z ing ac ti on s ’ . This helped me doc umen t 
+whi ch r isk s I alr e ady t ook c ar e o f . While m ak ing this doc umen t I als o 
+e xplor ed wh a t mu st be c ommuni c a t ed w i th u s er s dur ing the m ark e ting 
+ph a s e .
+ 
+14
+ 
+UI t e s t: R in g li gh t v i s u ali z a t i on s
+
+A s the UI w a s being des i gned, a lo t o f the in f orm a ti on w a s 
+c ommuni c a t ed throu gh the led r ing. I dec i ded t o t est whe ther u s er s 
+find s ome o f the impor tan t v is u als in t u i ti v e . (F i gur e 40 ) . [ Appendi x E 
+f or the t est plan and r es ult s ].
+F i gur e 3 8 : R es ult s o f er gonomi cs t est
+
+
+===== Page 15 =====
+
+UI e xplor a t i on
+
+Ther e w er e limi ta ti on s w i th the c omponen t s th a t c an be u s ed, I e xplor ed 
+w a y s t o c ommuni c a t e nec es s ary in f orm a ti on whi ch w ould fi t the m a tr i x 
+a v ailable . A da fr u i t 9 x 16 m a tr i x w a s the most s u i table s i z e and is 
+c omp a tible w i th the esp . The b i ggest ch allenge w a s t o fi t in the time 
+in f orm a ti on whi ch t ook 1 7 p i x els . I e xplor ed di f f er en t UI’ s and als o 
+br ain st ormed w i th the cli en t throu gh F i gm a [F i gur e 4 2 ]. I m ade di f f er en t 
+v er s i on s o f e ach s cr een , this proc es s helped me e xplor e m y cr e a ti v e s i de 
+and I r e ali z ed th a t the pos s ib ili ti es w er e endles s e v en w i th s u ch limi t ed 
+in t er f ac e . I c ame up w i th s olu ti on s th a t the cli en t agr eed t o implemen t . 
+This w a s a gr e a t de v elopmen t in cr e a ti v i t y and aesthe ti cs .
+ 
+F i gur e 4 2 : UI e xplor a ti on on fi gm a b y me and E dgar s T r eim anis
+F i gur e 43 : F ull fl o w
+F i gur e 44 : UI fl o w e xplor ed w i th E dgar s T r eim anis
+In t er a c t i on e xplor a t i on
+
+A f t er c oming up w i th the b a s i c s cr een s , I w ork ed on the most impor tan t 
+ta sk o f the a s s i gnmen t , m ak ing the UI fl o w and e xplor ing the in t er ac ti on . 
+I h a v e a p a s s i on f or in t er ac ti on des i gn and look ing in t o the no t s o 
+ob v i ou s di f f er enc es in in t er ac ti on . This in t er est o f mine is r e fl ec t ed in m y 
+PI and w a s c ommuni c a t ed t o the cli en t . 
+I approached this ta sk in a f e w di f f er en t w a y s : I m ade a f ull fl o w f or all o f the UI 
+[F i gur e 43 ] and all the st eps the u s er s w ill need t o tak e .
+ 
+W e then br ain st ormed w i th cli en t t o m ak e a mor e spec i fi c fl o w f or i c e b a th s 
+[F i gur e 44 ]. L a t er on I implemen t ed thes e t o a UI fl o w m ap[F i gur e 45 ] and 
+up da t ed i t throu ghou t the proc es s . I e xper i enc ed the limi ta ti on s o f h a v ing 
+only 2 inpu t s from the u s er (pu sh and ro ta t e ) and i t w a s ch allenging t o cr e a t e 
+an in t u i ti v e fl o w while k eep ing the UI on br and. S inc e I tackled the is s u es , I 
+think i t w a s a gr e a t pr ac ti c e f or m y cr i ti c al think ing sk ills .
+ 
+15
+
+
+===== Page 16 =====
+
+Pr o gr amm in g the whole UI
+
+The most e xt en s i v e and time c on s uming ta sk th a t I di d dur ing m y 
+in t ern ship w a s progr amming the UI and m ak ing all elec troni cs w ork . I am 
+v ery glad th a t I h ad this r espon s ib ili t y e v en thou gh I h ad v ery li t tle 
+e xper i enc e w i th progr amming. I s a w wh a t I c an achi e v e when I t ook on a 
+r espon s ib ili t y th a t is ou t o f m y c om f or t z one and ther e is a b i g impro v emen t 
+in m y progr amming and elec troni cs kno wledge . One o f the w a y s I 
+me a s ur ed this is the amoun t o f e xt ern al s our c es I go t help from . I needed 
+les s and les s help from c olle agu es and Ch a tGP T a s the time p a s s ed and I 
+f elt mor e c on fi den t in m y s elf while tak ing on ta sk s .
+
+It all s eemed v ery c omple x in m y mind a s I needed t o progr am the m a tr i x , 
+led r ing, t emper a t ur e s en s or , ro tary enc oder and u s e an esp whi ch I h a v e 
+ne v er u s ed. This w a s a gr e a t oppor t uni t y f or me t o achi e v e m y goal o f 
+w ork ing w i th elec troni cs th a t I am no t f amili ar w i th and broadening the 
+hor i z on o f m y c ompe t enc i es . 
+ 
+I t ook i t st ep b y st ep and star t ed w i th the most impor tan t f e a t ur es .  A s i t is 
+di ffi c ult t o star t w i th a blank sk e t ch , I u s ed the e x amples a v ailable f or the 
+m a tr i x and go t help from Ch a tGP T in e xplaining the c ode , whi ch the cli en t is 
+in f ormed o f . I le arned the b i tm ap f unc ti on and u s ed i t t o m ak e b i tm aps o f all 
+di gi t s whi ch helped me bec ome mor e f amili ar w i th ho w an led m a tr i x w ork s . I 
+als o bec ame mor e f amili ar w i th arr a y s . F or and while loops w er e als o f unc ti on s 
+I ne v er under st ood t o f ull e xt en t . Throu gh the c ode Ch a tGP T pro v i ded, the 
+logi c behind thes e loops bec ame a lo t mor e cle ar and I w a s able t o implemen t 
+i t multiple times la t er b y m y s elf . I u s ed a lo t o f i f sta t emen t s and i t ended up 
+being a non - u s able t echni qu e when I c omb ined i t w i th o ther c odes . This 
+sho w ed me onc e again th a t i t ’ s impor tan t t o think ahe ad. Ther e f or e I m ade a 
+c ode fl o w [F i gur e 46 ] and w e then m ade a ps eu do c ode w i th the cli en t 
+t oge ther . [F i gur e 4 7 ]
+ 
+F i gur e 45 : F ir st v er s i on o f UI fl o w m ap
+F i gur e 46 : C ode fl o w
+F i gur e 4 7 : ps eu do c ode m ade w i th E dgar s T r eim anis
+D e v elopmen t And R e ali z a ti on
+16
+
+
+===== Page 17 =====
+
+W i th a lo t o f tr i al and error I de v eloped the c ode enou gh t o m ak e an ini ti al 
+UI fl o w t est whi ch inclu ded t emper a t ur e me a s ur emen t , time s e t up , 
+c oun t do wn , timer and an o v erv i e w s cr een .
+ 
+
+Mak in g c o v er s
+
+I m ade di f f er en t v er s i on s o f c o v er s f or the LED m a tr i x whi ch I t est ed f or 
+v is ib ili t y . I implemen t ed di f f er en t a t tachmen t st yles and di f f u s i on filt er s . 
+D ur ing this I le arned abou t ho w pr ec is e 3D modelling h a s t o be f or s u ch 
+de tailed p ar t s . I di dn ’ t tak e in t o ac c oun t a lo t o f things s u ch a s the hei gh t o f 
+the s older ed p in s , ho w the 3D pr in t er c an gi v e error s i f the gap be tw een 
+f ac es ar e no t enou gh . A f t er choos ing the most s u i table c o v er f or the m a tr i x , 
+I t est ed i t ou t door s .
+F i gur e 5 2 : S older ing elec troni cs
+F i gur e 48 : Ma tr i x c o v er F i gur e 49 : Ma tr i x c o v er F i gur e 50 : V er s i on s o f m a tr i x c o v er
+F i gur e 5 1 : Ma tr i x c o v er under s unli gh t
+S older in g
+ 
+D ur ing this per i od  I als o le arned s older ing whi ch w a s s ome thing I 
+w a sn ’ t e xper i enc ed in . W a t ching c olle agu es w a s help f ul in ge t ting 
+star t ed. While i t t ook hour s , I dec i ded t o do i t b y m y s elf and i t w a s a 
+proc es s o f tr i al and error . Ho w e v er , no w I am able t o s older in a f e w 
+minu t es and I am mor e c om f or table t o c on tinu e w i th m y f u t ur e pro j ec t s 
+wher e I w ill w ork alone .
+DFM/DF A An aly si s
+The  des i gn w ould e v en t u ally be in j ec ti on molded. A s I w an t ed t o le arn 
+mor e abou t the engineer ing s i de o f des i gn , this w a s a gr e a t oppor t uni t y 
+f or me t o m ak e a des i gn f or m anu f ac t ur ing/ a s s embly an aly s is . My 
+c omp an y c oach pro v i ded me w i th doc umen t s abou t in j ec ti on molding 
+whi ch w a s bene fi c i al. I als o dis c u s s ed the des i gn w i th a c olle agu e who 
+e xplained t o me wh a t p ar t s c an cr e a t e problem s .
+
+I ne v er r e ali z ed the amoun t o f limi ta ti on s th a t des i gner s f ac e when 
+des i gning a m anu f ac t ur able produ c t . I m ade an an aly s is o f the des i gn and 
+c ame up w i th i de a s t o m ak e i t e a s i er / che aper t o produ c e [ Appendi x F f or 
+the checklist . I le arned th a t most o f the des i gn s i m ade till no w w ouldn ’ t 
+be m anu f ac t ur able and this w a s ano ther momen t when i s a w the 
+impor tanc e o f this in t ern ship e xper i enc e . I ho w e v er still think th a t 
+aesthe ti cs c an h a v e a p ar t in dec is i on m ak ing and I still need t o find a w a y 
+t o b alanc e thes e tw o a spec t s in m y des i gn s .
+
+I le arned a lo t abou t  wh a t m ak es a des i gn hi gher in c ost , this w a s a gr e a t 
+de v elopmen t f or bu s ines s & en tr epr eneur ship ar e a and no w i am able t o 
+s ee e v ery da y produ c t s from a di f f er en t per spec ti v e . 17
+
+
+===== Page 18 =====
+
+UI fl o w t e s t
+I m ade 3 edi ti on s o f the UI t est w i th up da t ed f e a t ur es e ach time . 
+Throu gh the findings I up da t ed the UI and de v eloped i t mor e . All t est 
+planning c an be f ound in Appendi x G . D ur ing thes e t est s I s a w th a t I 
+under estim a t ed the w a y s th a t the u s er s w ill in t er ac t w i th the des i gn . 
+Di f f er en t k inds o f error s ar is e when p ar ti c ip an t s tak e une xpec t ed 
+ac ti on s and I w a s able t o s ee a lo t o f p ar t s th a t needed fi x ing s u ch a s 
+going b ack be tw een s cr een s . I ther e f or e m ade an up da t ed UI fl o w and 
+added all the nec es s ary st eps [ Appendi x G f or ch anges in UI]. I als o 
+implemen t ed 2 ne w f e a t ur es , s ound and w a t er de t ec ti on . Ho w e v er a s I 
+h ad limi t ed time I di dn ’ t ge t t o implemen t e v ery thing, thos e I deli v er ed 
+throu gh m y UI m ap . I deli v er ed the fin al UI t est an aly s is t o m y cli en t 
+and  i den ti fi ed the p ar t s th a t need a t t en ti on f or f u t ur e w ork .
+F i gur e 53 : me a s ur emen t s f or the w indo w model
+F i gur e 54 : 3D model o f the w indo w
+F i gur e 5 5 : 3D model o f the w indo w
+F i gur e 5 7 UI fl o w t est
+F i gur e 58 : UI fl o w t est
+F i gur e 56 : Di f f er en t v er s i on s the w indo w
+W indo w mo del
+
+A f t er I m ade the c ode f or the UI t est ,  I star t ed w ork ing on m ak ing a 3D 
+model f or the w indo w th a t w ould fi t bo th the r ing and the m a tr i x . This 
+w a s ano ther momen t wher e I f ac ed engineer ing is s u es r egar ding the 
+s i z e o f the a v ailable c omponen t s . I needed t o incr e a s e the s i z e o f the 
+model and m ak e a gap be tw een the m a tr i x and the r ing. I als o f ac ed 
+str u ggles w i th lack o f da ta shee t f or the led r ing and h ad t o m ak e 
+pr ec is e me a s ur emen t s[F i gur e 53 ] whi ch r es ult ed in error s . This 
+sho w ed me th a t I need t o pr ac ti c e this ar e a .
+ I t est ed di f f er en t v er s i on s o f the w indo w and w e dec i ded t o s e t tle on 
+the best op ti on w i th the limi ta ti on s o f the gi v en c omponen t s . A s the 
+cli en t w ill u s e a c u st om m ade m a tr i x and r ing f or the fin al produ c t , this 
+w a s s u ffi c i en t f or the UI t esting and I c on tinu ed t o br ain st orm on w a y s 
+t o m ak e i t be t t er .
+18
+
+
+===== Page 19 =====
+
+F in al Pr o t o typ e
+
+I t ook p ar t in multiple stages o f the fin al pro t o t ype . Thes e inclu ded 3D 
+modelling, UI fl o w , ph y s i c al pro t o t yp ing, elec troni cs a s w ell a s progr amming.
+
+I w ork ed on elec troni cs o f the des i gn o v er the c our s e o f 2 . 5 mon th s . I pr im ar ily 
+w ork ed on br inging the u s er in t er f ac e in t o li f e b y u s ing an LED m a tr i x and 
+de v elop ing i t s c onnec ti on w i th all o ther c omponen t s . Ge t ting t o w ork on this 
+pro j ec t indi v i du ally and a sk ing f or help only when I needed pu shed me t o 
+ga ther all o f the sk ills th a t I c an c arry on t o m y f u t ur e pro j ec t s and c ar eer .
+
+F or fin al sho w c a s e o f wh a t I de v eloped. I m ade 2 pro t o t ypes , 1 w ork ing 
+( f unc ti on al) and 1 aesthe ti c , tr u e t o s i z e pro t o t ype . In the f unc ti on al pro t o t ype 
+I inclu ded all the nec es s ary c omponen t s ho w e v er i t is no t w a t er proo f . I 
+fin ali z ed the models in the w ork shop s u ch a s m ak ing the enc oder hole b i gger 
+and s anding s ome o f the s uppor t w i th the help o f c olle agu es . Althou gh , I w an t 
+t o ge t be t t er a t ph y s i c al pro t o t yp ing b y spending mor e time in v er ti go dur ing 
+m y F BP .
+
+The aesthe ti c pro t o t ype inclu ded m y e xplor a ti on o f the finger plac emen t s 
+and i t is the r e al li f e s i z e model. Ho w e v er , i t doesn ’ t hou s e the c omponen t s 
+du e t o i t s s i z e . I m ade the aesthe ti c v er s i on fl oa ting and e xper imen t ed w i th 
+w ei gh t distr ibu ti on t o m ak e i t fl oa t in 45 degr ees .
+19
+F i gur e 6 0 : F in al UI Flo w
+F i gur e 6 1 : F in al UI Flo w - s e t tings
+F i gur e 62 : F in al aesthe ti cs pro t o t ype -  P i c t ur e tak en b y V olk an S arp 
+T op aloğlu
+F i gur e 63 : F in al f unc ti on al pro t o t ype -  P i c t ur e tak en b y V olk an S arp 
+T op aloğlu
+
+
+===== Page 20 =====
+
+R e fl ec ti on
+20
+My int ernship at TSG was a v aluable and memorable e xperience t hat not 
+only pr o vided me wit h skills but helped me e xplor e m y pr of essional 
+identity and what I k een on as a designer .
+
+In t erms of m y pr of essional identity and vision, I used t o f ocus mainly on 
+bringing comf or t t hr ough m y designs and impr o ving user w ell-being. 
+Ho w e v er , I r ealiz ed t hat I am in int er est ed in cr eating enjo y able 
+int eractions f or e v er y da y use. W orking on a niche design made me see 
+t hat m y int er est lies in de v eloping int eractions t hr ough t echnology , 
+cr eating mor e personal and enjo y able pr oduct s. This int ernship confirmed 
+m y passion f or using electr onics t o cr eat e tangible pr ot otypes. I also 
+disco v er ed t hat I find pr ecise 3D modeling and w orking on t echnical 
+specifications less engaging, t hough I still see basic kno wledge of t hese 
+t opics v aluable f or communication wit h stak eholders and engineers. I’ m 
+unsur e if t his lack of engagement is due t o ine xperience, which I plan t o 
+e xplor e fur t her during m y FBP while w orking on ph ysical pr ot otypes and 
+identifying which aspect s of t he design pr ocess I want t o pursue in t he 
+futur e.
+
+As not ed b y m y compan y coach, I w ork ed t o int egrat e m y user -f ocused 
+design appr oach wit h t he compan y ’ s engineering-cent er ed appr oach, 
+gaining insight s int o f act ors lik e cost, manuf acturing, and risks, which ar e 
+crucial f or m y futur e car eer . My e xperience br ought v alue t o t he compan y 
+b y off ering a fr esh perspectiv e on t heir pr ocess. Incorporating m y user 
+t esting kno wledge was challenging due t o limit ed access t o t he tar get 
+gr oup, so I compensat ed b y cr eating r ealistic scenarios. Ho w e v er , I 
+belie v e I could ha v e bett er pr epar ed t he en vir onment s and set mor e 
+analytical goals. I’ m committ ed t o impr o ving t he structur e of m y futur e 
+t est s b y pr eparing mor e f ocused pr obes and eliminating unnecessar y 
+data collection.
+
+My compan y coach obser v ed t hat I was, at times compliant t o war d t he 
+client. Due t o m y limit ed pr of essional e xperience as a bachelor student, I 
+lack ed t he confidence t o back up m y ideas.
+I had t he unique privilege of w orking wit h a highly in v olv ed client who 
+was also a designer , and he shar ed v aluable kno wledge, which made 
+communication smoot her but also pr esent ed challenges. The client had 
+str ong opinions, leading me t o adher e t o cer tain design limitations. 
+Nonet heless, t his e xperience was v aluable f or m y pr of essional gr o wt h, 
+t eaching me ho w t o communicat e eff ectiv ely wit h client s who ha v e 
+diff er ent pr ef er ences. R eflecting on m y achie v ement s in a shor t time 
+boost ed m y confidence, and I will bett er sho w case t his in futur e 
+collaborations.
+
+R eflection has alwa ys come naturally t o me, as it ’ s a consist ent practice 
+in m y personal lif e. I find it impor tant t o understand t he r easons behind 
+m y f eelings, actions, and decisions. My compan y coach not ed in his 
+f eedback: "Elif r epor t ed t o me at a high le v el, r eflecting on t he pr oject 
+pr ogr ess, bot h in cont ent and planning, as w ell as it s impact on her 
+personal de v elopment goals. " This f eedback highlight ed ho w r eflection 
+contribut es t o m y pr of essional gr o wt h as w ell.
+
+One v aluable piece of f eedback fr om m y compan y coach was t o 
+incorporat e mor e visuals int o m y pr esentations. While I naturally lean 
+t o war d t e xtual communication, visuals ar e crucial f or a designer . 
+R eflecting on t his, I r ealiz e m y lack of confidence in m y cr eativity and 
+aest hetic skills ma y contribut e t o t his gap. I plan t o put mor e eff or t int o 
+t he visual cont ent I pr esent, as it will be v aluable bot h in t he long t erm 
+and in building m y por tf olio.
+
+During m y int ernship, I sought oppor tunities t o gr o w in t he ar eas of 
+business and entr epr eneurship. As not ed b y m y compan y coach, I t ook 
+t he initiativ e t o join cir cularity meetings, v olunt eer ed t o cr eat e 
+sustainability f ocused int ernship assignment s. These e xperiences 
+sho w ed me t hat ent husiasm is v aluable in gaining new e xperiences.
+
+
+===== Page 21 =====
+
+U s e o f AI
+
+While wr i ting this r epor t , Ch a tGP T w a s u s ed in the s ec ti on s : c omp an y and cli en t 
+des cr ip ti on , goals and de v elopmen t and r e fl ec ti on . It w a s u s ed t o str u c t ur e the t e xt 
+and fi x gr amm ar error s . An y o ther p ar t w i th c on fi den ti al in f orm a ti on w a s no t 
+sh ar ed w i th Ch a tGP T
+
+A ckno wledgemen t s
+ 
+I w an t t o th ank T SG f or pro v i ding me w i th an oppor t uni t y t o do m y in t ern ship 
+under their gu i danc e . I am gr a t e f ul f or the r es our c es the y pro v i ded me w i th 
+inclu ding c omponen t s , multiple 3D pr in t s , f ac ili ti es lik e m achines , s older ing, and 
+mor e .
+ 
+I spec i fi c ally w an t t o th ank m y c omp an y c oach Ba sti a an V an Hou t f or men t or ing 
+me throu gh this per i od. Ba sti a an and I h ad w eekly mee tings throu ghou t m y 
+in t ern ship and he gu i ded me in t erm s o f the pro j ec t and m y per s on al de v elopmen t . 
+I appr ec i a t e all the c on tr ibu ti on s he pro v i ded t o the pro j ec t and time he pu t in t o 
+e xplaining me t echni c al t op i cs when I needed. Ba sti a an w a s c on s i der a t e o f m y 
+goals and ga v e me v alu able f eedb ack r egularly .
+ 
+A spec i al th ank s t o E dgar s T r eim anis , m y cli en t who h ad w eekly mee tings w i th me , 
+k ep t a clos e w a t ch on the a s s i gnmen t and an sw er ed all m y qu esti on s . W e 
+c ommuni c a t ed r egularly e v ery w eek , he w a s open t o dis c u s s m y c onc ern s and 
+v alu ed m y de v elopmen t . I u s ed a lo t o f his pr e v i ou s w ork while cr e a ting the 
+doc umen t s and deli v er ables . He pro v i ded me w i th ac c es s t o F i gm a p age o f all 
+pr e v i ou s w ork s whi ch speed up m y proc es s . I appr ec i a t e the kno wledge I gained 
+from him r egar ding elec troni cs , 3D modelling and m an y mor e t op i cs .
+ 
+I als o w an t t o th ank all c olleges th a t j oined m y u s er t est s and pro v i ded v alu able 
+f eedb ack f or the de v elopmen t o f the produ c t .
+ 
+F in ally , I w ould lik e t o th ank Anni e Sw ar t , s eni or des i gn engineer , and R ober t 
+Noome , le ad des i gn enginner . Anni e w a s e xtr emely help f ul and m ade i t e a s y f or me 
+t o adj u st t o the c omp an y , w a s alw a y s e ager t o an sw er m y qu esti on s , and t ook the 
+time t o e xplain ho w things w ork a t the c omp an y e v ery ch anc e she go t . R ober t w a s 
+als o v ery help f ul in an sw er ing m y qu esti on s , he under st ood m y per spec ti v e w ell 
+and helped me w i th 3D pr in ting.
+ 
+ 
+ 
+ 
+ 
+ 
+R e f er enc es
+
+[ 1 ] WIRED . 2 0 2 3 . All the W a y s Ic e Ba th s A f f ec t the Body | WIRED . V i deo . ( 2 7 
+F ebr u ary 2 0 2 3 ) . R e tr i e v ed 3 1 D ec ember , 2 0 2 4 from h t tps :/ /
+y ou t u .be / 1u er S5J jj RI? s i =Mi X S X 5Z R3ik Z 1c A s
+
+[ 2 ]  Mel R obb in s . 2 0 2 2 . ICE B A TH | HO W T O GE T S T A R TED w i th W im Ho f C old 
+W a t er Ther ap y & W im Ho f Br e a thing | Mel R obb in s . V i deo . ( 12 Mar ch 2 0 2 2 ) . 
+R e tr i e v ed D ec ember 3 1 , 2 0 2 4 from h t tps :/ / y ou t u .be / C 1 ec q8V B 9j o ? s i =E -
+GCt ePf - 9 Q2IiU3
+
+[ 3 ] Mi ch ael K ummer . 2 0 2 2 . Ho w t o SU R VIVE Y our F ir st Ic e Ba th or C old Plunge . 
+V i deo . ( 1 7 Ma y 2 0 2 2 ) . R e tr i e v ed D ec ember 3 1 , 2 0 2 4 from h t tps :/ /
+y ou t u .be / 1w v Z 9 a 6j 1Pk ? s i = W7 v ti - J R y x A R Z _ tK
+
+[ 4 ] Ann P i e tr angelo . 2 0 2 4 . The S c i enc e and Bene fi t s o f Ic e Ba th s ( O c t ober 
+2 0 2 4 ) . R e tr i e v ed D ec ember 3 1 , 2 0 2 4 from h t tps :/ / www . v ery w ellhe alth . c om /
+bene fi t s - o f - i c e -b a th - 7 56 8 9 1 4
+
+[ 5 ] C onor Sheeh an . 2 0 2 4 . Wh y Ic e Ba th s ? - Men tal He alth ( A u gu st 2 0 2 4 ) . 
+R e tr i e v ed  D ec ember 3 1 , 2 0 2 4 from h t tps :/ / op ti z en s . c om / wh y - i c e -b a th s -
+men tal-he alth /
+
+[ 6 ] Er i c C . Ander s on , R . Ni chola s C arle t on , Mi ch ael Di e f enb ach , and P aul K . J . 
+Han . 2 0 1 9 . The r ela ti on ship be tw een unc er tain t y and a f f ec t . ( O c t ober 2 0 1 9 ) . 
+R e tr i e v ed D ec ember 3 1 , 2 0 2 4 from h t tps :/ / www . fron ti er s in . or g/
+ar ti cles / 10 . 33 8 9 / fps y g. 2 0 1 9 . 0 250 4 / f ull
+
+[ 7 ] D a v i d G . Behm and T or i B . C ar t er . 2 0 2 0 . E f f ec t o f e x er c is e -r ela t ed f ac t or s on 
+the per c ep ti on o f time . Fron ti er s in Ph y s i ology 1 1 ( J uly 2 0 2 0 ) . D OI:h t tp :/ /
+dx . doi. or g/ 10 . 33 8 9 / fph y s . 2 0 2 0 . 0 0 7 7 0
+21
+
+
+===== Page 22 =====
+
+Appendix A- Planning
+ 
+
+ 
+ 
+ 
+ 
+ 
+22
+
+
+===== Page 23 =====
+
+App endi x  B - L i s t o f r e qu ir emen t s
+ 
+
+ 
+ 
+ 
+ 
+ 
+App endi x  C - U s ab ili ty t e s t op er a t in g the de v i c e
+ 
+
+ 
+ 
+ 
+ 
+ 
+Pr im ary qu esti on : Wh a t does the c urr en t des i gn a f f or d in t erm s o f oper ab ili t y ?
+S ub qu esti on :
+C an the p ar ti c ip an t s oper a t e the de v i c e w i th one h and when i t ' s on t op o f 
+w a t er 
+C an the p ar ti c ip an t s oper a t e the de v i c e w i th one h and ou t s i de o f w a t er 
+D o p ar ti c ip an t s h a v e an y c on f u s i on s when try ing t o oper a t e the de v i c e 
+Wh a t k ind o f ch allenges does the c urr en t des i gn br ing when oper a t ed in 
+di f f er en t c ir c um stanc es ? (b a th /lak e , v er ti c al t ub )
+
+P ar ti c ip an t s :  C on v eni enc e s ampling c an be m ade . P ar ti c ip an t s c an be chos en 
+from ou t s i de o f the tar ge t group a s this u s ab ili t y t est is no t r ela t ed t o the 
+ac t u al ac ti v i t y . C olle agu es c an be approached. No spec i fi c ch ar ac t er isti cs ar e 
+pr i or i tis ed
+
+En v ironmen t: No t c on trolled, A r egular b a th , p ar ti c ip an t s w ill be in s i de and 
+ou t s i de o f the b a th .
+
+S e t up : 
+S es s i on 1 ( ou t s i de o f w a t er ) - P ar ti c ip an t s w ill be gi v en the de v i c e , t old th a t 
+i t is a sm ar t i c e b a th timer , the y w ill be t old th a t i t doesn ’ t f unc ti on y e t t o 
+a v oi d c on f u s i on . The y w ill be a sk ed t o hold the de v i c e and try t o oper a t e i t . 
+The y w ill be t old th a t the y c an ’ t plac e i t on a s ur f ac e . The y w ill be obs erv ed 
+and i f the y don ’ t under stand, the y w ill be t old th a t i t h a s a bu t t on f or bo th 
+ro ta ting  and pu shing and w ill be a sk ed t o per f orm thes e 2 ac ti on s . F in ally , i f 
+the y u s e their 2 h ands the y w ill be a sk ed t o try i t w i th a s ingle h and.
+
+S es s i on 2 ( on t op o f w a t er ) – The de v i c e w ill be plac ed on t op o f a t ub f ull o f 
+w a t er and the t ub w ill be pu t in a le v el o f a b a th (knee le v el) p ar ti c ip an t s w ill 
+be a sk ed t o go throu gh the s ame st eps lik e in s es s i on 1 . 
+
+S es s i on 3 ( in s i de o f w a t er ) – The p ar ti c ip an t s w ill be gu i ded t o sta y in a 
+pos i ti on th a t mimi cs s i t ting in a b a th . The de v i c e w ill be plac ed on t op o f a 
+t ub f ull o f w a t er in a le v el wher e the y w ould r e ach i t dur ing a b a th . The s ame 
+proc es s w ill f ollo w . 
+
+23
+
+
+===== Page 24 =====
+
+E x ample in t erv i e w :
+
+He holds the de v i c e w i th 2 h ands , holds w i th one h and and sp in s w i th the 
+o ther . He s ai d ‘ I w ould a s s ume y ou c an sp in i t this s i de t o incr e a s e the time 
+and this time t o decr e a s e . ’ ‘I don ’ t s ee an y bu t t on s t o star t the timer ’ 
+
+A f t er I t old abou t the bu t t on :
+He s ai d he di dn ' t r e ali z e the bu t t on , c ould h a v e been e a s i er i f ther e w a s an 
+i c on . 
+
+When i t old t o hold i t w i th one h and:
+He di dn ’ t hold i t from the s i des ; he gr abbed i t from the b ack lik e holding a 
+w a t er bo t tle .
+
+In t erv i e w
+1 - I w a s c on f u s ed a t the star t a s i di dn ’ t r e ali z e the bu t t on , i t is all the s ame 
+c olor whi ch br ings c on f u s i on
+2 - R o ta ting w a s in t u i ti v e , i di dn ’ t r e ali z e the pu shing
+3 - W i th one h and i t w a s a b i t h ar der , i immedi a t ely thou gh t o f holding i t w i th 2 
+h ands . 
+4 - I gu es s i t c ould be e a s i er t o hold w i th one h and i f i t w a s sm aller
+
+App endi x  D - Er gonom i cs t e s t
+ 
+
+ 
+ 
+ 
+ 
+ 
+A f t er the r es ult s o f the u s ab ili t y t est 1 . It er a ti on s w er e m ade t o e xplor e 
+di f f er en t f e a t ur es f or the des i gn t o be held e a s ily and c on trolled w i th s ingle 
+h and c om f or tably . 2 di f f er en t t ypes o f finger plac emen t s w er e e xplor ed. One 
+being  c urv a t ur es on t op o f the moun ting p ar t s and o ther being m ak ing a 
+cr a t er around the moun ting p ar t s . The la st 2 i t er a ti on s w er e done b y f ollo w ing 
+the pr e v i ou s r es ult s o f ho w u s er s hold the de v i c e . An addi ti on al t est w ill be 
+m ade wher e the f oc u s is mor e on the er gonomi cs and no t on the in t u i ti v enes s 
+o f the spec i fi c in t er ac ti on s . It w ill be t est ed whi ch o f thes e 3 sh apes f eel mor e 
+c om f or table t o the u s er and wh y . 
+Pr im ary qu esti on : Wh a t does di f f er en t finger plac emen t s br ing in t erm s o f 
+er gonomi cs and oper ab ili t y ?
+S ub qu esti on :
+Whi ch o f the finger plac emen t s f eel most c om f or table t o the 
+p ar ti c ip an t s when oper a t ed? Wh y 
+C an the p ar ti c ip an t s oper a t e the de v i c e w i th one h and w i th e ach 
+des i gn ?
+Wh a t k ind o f ch allenges does  e ach des i gn br ing when oper a t ed w i th 
+s ingle and
+D oes the addi ti on o f finger plac emen t s br ing v alu e t o the des i gn in 
+t erm s o f er gonomi cs ? 
+P ar ti c ip an t s :  C on v eni enc e s ampling w ill be m ade . P ar ti c ip an t s c an be 
+chos en from ou t s i de o f the tar ge t group a s this u s ab ili t y t est is no t r ela t ed 
+t o the ac t u al ac ti v i t y . C olle agu es c an be approached.
+
+En v ironmen t: No t c on trolled, j u st the o ffi c e 
+S e t up : 
+The p ar ti c ip an t s w ill be gi v en the 3 pro t o t ypes one b y one  and in str u c t ed t o 
+per f orm 2 ta sk s : ro ta ting and pu shing the bu t t on . P ar ti c ip an t s w ill be t old 
+th a t the de v i c e should be held and oper a t ed w i th a s ingle h and.  
+P ar ti c ip an t s w ill be obs erv ed while  in t er ac ting w i th e ach pro t o t ype . A s e t o f 
+qu esti on s w ill be a sk ed a f t er e ach pro t o t ype and la t er a t the end a s w ell.
+
+In t erv i e w Q u esti on s
+A f t er e ach pro t o t ype 
+Di d y ou find the de v i c e e a s y t o oper a t e 
+Di d i t f eel c om f or table t o hold the de v i c e 
+Di d i t f eel c om f or table t o tak e the ac ti on s (ro ta ting-pu shing)
+W er e ther e an y a spec t s o f the de v i c e th a t y ou m ade i t di ffi c ult t o u s e 
+W a s i t in t u i ti v e t o plac e y our finger on the spec i fi c plac emen t s 
+A t the end
+Whi ch o f the des i gn s f elt most c om f or table t o u s e ? Wh y 
+Whi ch o f the des i gn s f elt most le a st c om f or table t o u s e ? Wh y 
+Wh a t w er e the c er tain a spec t s in the pro t o t ypes th a t helped y ou when 
+u s ing the de v i c e w i th s ingle h and?
+24
+
+
+===== Page 25 =====
+
+App endi x  E - R in g li gh t v i s u ali s a t i on s t e s t
+ 
+
+ 
+ 
+ 
+ 
+ 
+3 di f f er en t s c en ar i os w ill be t est ed w i th 6 people . P ar ti c ip an t s w ill be gi v en a 
+sm all pro t o t ype th a t enc omp a s s es the ph y s i c al des i gn and an  LED r ing 
+a t tached. The pro t o t ype w ill no t be plac ed on t op o f the w a t er bu t on a 
+c ar dboar d des i gn th a t mimi cs the en v ironmen t .  
+
+F or the fir st s c en ar i o , p ar ti c ip an t s w ill be in str u c t ed t o u s e this de v i c e t o 
+me a s ur e the t emper a t ur e o f the w a t er in fron t o f them . No addi ti on al 
+in str u c ti on s w ill be gi v en . When the y plac e the de v i c e on t op o f the w a t er . 
+The blink ing w ill star t and i t w ill be st opped a f t er a c er tain amoun t o f time . 
+The p ar ti c ip an t s w ill no t be t old i f the de v i c e is me a s ur ing or no t . P ar ti c ip an t s 
+w ill be a sk ed t o e xplain wh a t the y under stand, ou t lou d s o th a t the r es e ar cher 
+c an under stand their thou gh t proc es s .
+
+F or the s ec ond s c en ar i o , the y w ill be a sk ed t o r epe a t the me a s ur emen t 
+proc es s , this time the r ing li gh t w ill star t blink ing the c olor blu e and w on ' t st op 
+un til a c er tain momen t whi ch c ommuni c a t es th a t the t emper a t ur e is lo w . It 
+w ill be obs erv ed i f ther e ar e an y c on f u s i on s and whe ther the p ar ti c ip an t 
+str u ggles . The p ar ti c ip an t s again w ill be a sk ed t o spe ak ou t lou d and e xplain 
+their thou gh t proc es s . 
+
+In the fin al s c en ar i o , u s er s w ill be in str u c t ed t o im agine the y s e t the timer and 
+star t ed their s es s i on . The LED s w ill v is u ali z e the timer going b y . P ar ti c ip an t s 
+w ill be a sk ed t o e xplain
+
+wh a t the y under st ood.  The r es e ar cher w ill tak e no t es o f thes e obs erv a ti on s 
+dur ing the st u dy . A f t er the st u dy , p ar ti c ip an t s w ill be in t erv i e w ed and a sk ed t o 
+e xplain their e xper i enc es . 
+
+In t erv i e w qu esti on 
+W er e y ou able t o fi gur e ou t wh a t ac ti on s t o tak e w i thou t addi ti on al 
+gu i danc e 
+Di d the pro t o t ype pro v i de enou gh f eedb ack or in f orm a ti on f or y ou t o 
+kno w wh a t t o do 
+W er e ther e an y momen t s wher e y ou f elt un s ur e abou t wh a t t o do ne xt 
+Di d the LED s pro v i de cle ar enou gh c ommuni c a ti on f or y ou ? Ho w w ell di d 
+the y gu i de y our ac ti on s ?
+O u t c omes
+
+F or s c en ar i o 1 : Most people under st ood th a t the blink ing me an t th a t the 
+de v i c e w a sn ’ t r e ady y e t . 1 per s on s ai d th a t i t w a s star ting up . This isn ’ t 
+e x ac tly tr u e bu t als o no t t oo f ar s inc e the y under st ood th a t the blink ing 
+ending me an t i t w a s r e ady and in th a t c a s e the y w ould s ee the t emper a t ur e 
+on the s cr een whi ch w ould be ‘ r e ady ’ . Ano ther per s on s ai d i t ' s c on firming 
+the t emper a t ur e whi ch is the c orr ec t an sw er . Other s als o under st ood th a t 
+fl i ck er ing me an s i t ' s c ollec ting da ta and is no t r e ady y e t . E v ery one 
+under st ood th a t when blink ing st ops i t mu st me an i t is r e ady . I think w i th the 
+c urr en t r es ult s , the blink ing is pr e t t y under standable when i t ' s c oupled w i th 
+t emper a t ur e number a f t er i t bec omes stable .
+
+F or s c en ar i o 2 : Most people under st ood th a t the blu e c olor me an t th a t the 
+w a t er w a s c old  and blink ing als o cle arly sho w ed th a t i t w a sn ’ t r e ady . One 
+per s on thou gh t blink ing w a s r ec ogni z ing the t emper a t ur e bu t s inc e the y 
+s a w th a t the blink ing di dn ’ t st op the y under st ood th a t i t mu st me an i t ' s j u st 
+c old and i t ' s no t r e ady . In t er estingly one per s on s ai d blu e shouldn ’ t be th a t 
+c old, whi t e should be c older s inc e i t r eminds them o f sno w . Th a t w a s j u st 
+one per s on ou t o f 5 . S omeone s ai d th a t the y w ould think th a t the blink ing 
+me an s i t ' s bu s y and the y w ould most lik ely tak e i t ou t o f the w a t er . In this 
+c a s e i think i t ' s impor tan t t o displa y th a t the y c an cli ck t o c on tinu e w i th the 
+c urr en t t emper a t ur e 
+
+F or s c en ar i o 3 : The timer s c en ar i o w a s tr i ck y bec au s e the y di dn ’ t ac t u ally 
+ge t t o s e t the time bu t I t old them , This ch anges the ou t c omes bec au s e 
+the y don ’ t s ee an y indi c a ti on o f the dur a ti on be f or e the y star t s o s ome 
+people di dn ’ t r e ali z e th a t the r ing v is u ali z a ti on s r e f err ed t o timer . One 
+per s on under st ood th a t i t indi c a t es ho w long the y should be in bu t when 
+the timer w a s done all li gh t s sta y ed on , ther e f or e the y thou gh t i t me an s 
+the y c an sta y longer and th a t w a s the minimum time . It is impor tan t t o add a 
+blink ing when the timer is done and a bu z z er ( s omeone poin t ed ou t th a t 
+bu z z er w ould be u s e f ul) t o m ak e s ur e the y ge t ou t . One per s on poin t ed ou t 
+th a t i t w a sn ’ t a c oun t do wn a s the leds appe ar ed no t t o dis appe ar . F air poin t ! 
+One per s on thou gh t th a t the c olor me an t the w a t er w a s ge t ting w armer bu t 
+then the y qu esti oned’ wh y w ould i t go c ir cle then ’ . Then the y r emember ed 
+the clock . 
+25
+
+
+===== Page 26 =====
+
+App endi x  F - DFM/DF A che ckli s t
+ 
+
+ 
+ 
+ 
+ 
+ 
+DFM CHE CKLIS T 
+☐ S ur f ac e rou ghnes s …. ( tb d)
+☐ Elimin a ti on o f slippery s ur f ac e when in c on tac t w i th w a t er
+☐ No under c u t s 
+☐ No w all thi cknes s di f f er enc es
+☐ No thr e ads
+☐ No standalone bos s es
+☐ P ar t s ar e w a t er ti gh t and no w a t er ac c es s in s i de
+☐ P ar t s th a t ar e in c on tac t w i th w a t er ar e s e a s alt r es istan t
+☐ W ei gh t distr ibu ti on r equ ir emen t s ar e c on s i der ed 
+☐ Produ c ti on c ost is w i thin the r ange …-…. . ( tb d)
+☐ S u ffi c i en t sp ac e f or all c omponen t s t o be plac ed in nec es s ary spo t s
+ 
+DF A CHE CKLIS T 
+☐ 3 s ep ar a t e p ar t s ( t op bo t t om and mi ddle )
+☐ All p ar t s ar e e a s ily a t tached
+☐ Bo t t om is no t r emo v able unles s t ools ar e u s ed ( s cr e w dr i v er e t c . )
+☐ The c omponen t s c an be ac c es s ed f or r ep air w i thou t dam aging the p ar t s
+☐ All r ep air able p ar t s ar e open f or ac c es s onc e dis s embled.
+P ar ti c ip an t s : C on v eni enc e s ampling c an be m ade . P ar ti c ip an t s c an be chos en 
+from ou t s i de o f the tar ge t group a s this u s ab ili t y t est is no t r ela t ed t o the 
+ac t u al ac ti v i t y . C olle agu es c an be approached.
+En v ironmen t: No t c on trolled
+
+S e t up : The p ar ti c ip an t s w ill be gi v en the de v i c e whi ch the LED m a tr i x is 
+a t tached t o . The y w ill be in f ormed abou t the purpos e o f the de v i c e and the 
+f e a t ur es i t h a s . Ho w e v er , the y w ill no t be in f ormed abou t ho w t o tak e thes e 
+ac ti on s . P ar ti c ip an t s w ill be gi v en a bo wl o f c old w a t er and t old th a t this is the 
+i c e b a th w a t er whi ch the y c an me a s ur e . The t emper a t ur e s en s or w ill be tak en 
+ou t o f the de v i c e t o en s ur e the c omponen t s ar e k ep t dry . P ar ti c ip an t s w ill be 
+a sk ed t o star t the de v i c e and tak e the st eps the y think ar e nec es s ary . The y 
+w ill be obs erv ed and the c ommen t s the y m ak e w ill be no t ed do wn . When 
+needed, the r es e ar cher w ill a sk them t o e xplain their thou gh t proc es s . A t the 
+end o f the s es s i on s , a shor t in t erv i e w w ill be held [ s ee in t erv i e w qu esti on s ]
+Pro t o t ype : The whole des i gn w i th all c omponen t s
+
+P os s ible b i a s 
+A s the  t est is no t being done in the ac t u al s e t ting and the ac ti v i t y o f the 
+i c e b a th ther e ar e shor t c omings .  The r es ult s mi gh t ch ange dur ing the  
+ac t u al ac ti v i t y a s c er tain in f orm a ti on  mi gh t be per c ei v ed di f f er en tly . 
+A ddi ti on ally , the n a t ur e o f u s er t est s mi gh t c au s e in t erpr e ta ti on th a t 
+w ouldn ’ t be done dur ing the  ac t u al ac ti v i t y .
+
+In t erv i e w Q u esti on s ( s ame f or all s es s i on s 
+W er e ther e an y momen t s o f c on f u s i on while u s ing the de v i c e ? E xplai
+W a s the fl o w s imple t o f ollo w ?
+Di d the ac ti on s y ou needed t o tak e f eel in t u i ti v e ?
+
+
+O u t c omes 
+
+1 - F ir st s cr een is no t v ery under standable , e v ery one pr es s es bu t doesn ' t 
+under stand th a t the y need t o sp in t o t urn on . When the y sp in , the y think th a t 
+the y ar e s e t ting the timer alr e ady .
+2 - Or ange c olor dur ing t emper a t ur e me a s ur emen t c an be c on f u s ing, the y 
+think th a t m a ybe s ome thing is wrong or the w a t er is t oo ho t .
+
+App endi x  G - UI Flo w t e s t
+
+
+UI fl o w t est v er s i on 1 
+
+Pr im ary qu esti on : Is the des i gned UI fl o w e a s y t o f ollo w and ar e the st eps th a t 
+ar e tak en in t u i ti v e ?
+S ub qu esti on s 
+Ar e ther e an y c on f u s i on s r egar ding the in f orm a ti on sho w
+D o u s er s kno w whi ch ac ti on t o tak e and when 
+Is the in f orm a ti on sho wn enou gh f or u s er s t o under stand wh a t stage the 
+de v i c e is in 
+Is the in t er ac ti on w i th the de v i c e a smoo th proc es s ? 
+
+ 
+ 
+ 
+ 
+ 
+26
+
+
+===== Page 27 =====
+
+3 - It w ould be good t o h a v e ano ther s cr een be f or e the c oun t do wn lik e ‘ ar e 
+y ou r e ady ’ bec au s e  y ou then need t o j ump in the w a t er v ery qu i ckly 
+bec au s e o f the c oun t do wn
+4 - O v erv i e w s cr een s eem s t o be c on f u s ing and most people don ’ t e xpec t i t , 
+ho w e v er ther e is a lack o f c on t e xt . Ma ybe i f the y w er e doing an i c e b a th the y 
+w ould w an t t o s ee i t . The gr een c olor is c on f u s ing t oo . 
+D es i gn ch ange
+An anim a ti on t o indi c a t e sp in t o t urn the de v i c e on t o m ak e i t mor e 
+under standable or m ak e a long pu sh t o t urn i t on f ully and sk ip the 
+sp innin
+An ar e y ou r e ady s cr een be f or e y ou star t the time
+A dding mor e time dur ing the timer and als o a f t er the s es s i o
+Going b ack t o the me a s ur ing in c a s e the y di dn ’ t pu t the de v i c e in w a t er 
+y e 
+Going b ack t o t emper a t ur e s cr een t o me a s ur e agai
+S ome indi c a ti on th a t time h a s ended lik e fl a shing or bu z z er
+ 
+Wh a t w a s ch anged f or the s ec ond t est
+Anim a ti on added in the beginning
+P au s e s cr een be f or e the timer
+ 
+UI fl o w t est - V er s i on 2
+
+A f t er an aly s ing the r es ult s i t w a s dec i ded t o add a f e w f e a t ur es t o the fl o w 
+th a t w ill be inclu ded in the fin al des i gn . The p ar t s wher e p ar ti c ip an t s h ad 
+the b i ggest str u ggles w er e f oc u s ed on . An anim a ti on w a s inclu ded in the 
+ini ti al lock s cr een t o gu i de u s er s in ro ta ting the bu t t on . Als o an addi ti on al 
+s cr een w a s added r i gh t be f or e the c oun t do wn star t s t o en s ur e u s er s ar e 
+in f ormed th a t the timer w ill star t . Althou gh ther e w er e things th a t needed 
+t o be added still, i t w a s dec i ded t o le a v e them f or the fin al v er s i on
+App endi x  G - UI Flo w t e s t
+
+ 
+ 
+ 
+ 
+ 
+O u t c ome
+The anim a ti on does no t m ak e mu ch o f a di f f er enc e , p ar ti c ip an t s ar e still 
+c on f u s ed abou t the ro ta ti on t o unlock . Most o f them sp inned i t f a st er and 
+fi gur ed i t ou t f a st er then the e arli er s es s i on bu t the y still thou gh t i t w a s a 
+time s e t up or th a t the anim a ti on me an t i t w a s c alc ula ting s ome thing. 
+R espon s e is f a st er bu t the y don ’ t r e ally under stand the me anin
+The p au s e addi ti on w a s cle ar t o almost all, the y under st ood th a t the y 
+needed t o pu sh i t bu t this time 2 o f them a sk ed i f i t w a s r e ally nec es s ary . In 
+the pr e v i ou s one o ther s s ai d th a t the c oun t do wn c ame t oo qu i ck . S o i t 
+depends on the s i t u a ti on . 
+UI fl o w t est - V er s i on 3
+
+F or the fin al u s er t est , the t est str u c t ur e w ill be k ep t the s ame . Ho w e v er , in the 
+pr e v i ou s t est s i t w a s r e ali z ed th a t the u s er s w er e no t im agining them s elv es in 
+the s c en ar i o o f i c e b a th s . It w a s dec i ded th a t impro v ed st ory t elling and 
+probes ar e nec es s ary . A c ar dboar d boo th w a s m ade f or the b a th in whi ch the 
+bo wl o f w a t er and the de v i c e w a s plac ed . In the beginning o f the u s er t est s , 
+r a ther th an talk ing abou t the purpos e o f the t est , the u s er s w er e immedi a t ely 
+a sk ed t o p i c t ur e them s elv es pr ep ar ing f or an i c e b a th and w er e e xplained the 
+ac ti on s o f s omeone th a t tak es an i c e b a th . 
+
+Ch anges in the UI
+B u z z e
+W a t er de t ec ti on
+P au s e time and go b ack t o t emper a t ur e s cr ee
+Go b ack t o t emper a t ur e s cr een when de v i c e is plac ed in w a t er dur ing 
+s e t ting tim
+Go b ack t o s e t ting time s cr een in c a s e the timer w a s s e t wron
+o v er time and adding the time t o whole b a th s es s i on
+27
+
+
+===== Page 28 =====
+
+App endi x  G - UI Flo w t e s t
+
+ 
+ 
+ 
+ 
+ 
+O u t c ome
+A s the st ory t elling and probes w er e impro v ed, p ar ti c ip an t s u s ed mor e 
+f e a t ur es o f the de v i c e lik e plac ing i t on t op o f w a t er ( w a t er de t ec ti on and 
+t emper a t ur e s en s or s ) 
+Man y people still a s s oc i a t e or ange c olor w i th w arm t emper a t ur e whi ch 
+c an be c on f u s ing dur ing the me a s ur emen t s cr een . It is no t poin t ed ou t in 
+the o ther s cr een s 
+The f e a t ur es lik e p au s ing and going b ack w er e j u st u s ed b y one 
+p ar ti c ip an t and he w a s able t o fi gur e i t ou t him s elf . A s ther e is minim al u s e 
+o f thes e f e a t ur es i t c ouldn ’ t be an aly z ed in a de tailed m anner 
+The pla y bu t t on c an be c on f u s ing a s i t is als o a s s oc i a t ed w i th s ome thing 
+alr e ady pla y ing
+The t urning o f f f unc ti on doesn ’ t w ork when the de v i c e is still in w a t er s o 
+the de v i c e w ould star t a t the t emper a t ur e me a s ur emen t s cr een .
+Me a s ur emen t no t c on tinu ing onc e i t ' s stable is still an is s u e bec au s e 
+people don ' t alw a y s pu t the de v i c e in w a t er a t r i gh t times 
+T ak ing the de v i c e ou t o f w a t er in an y stage doesn ’ t r es ult in an y thing, 
+althou gh s ome p ar ti c ip an t s thou gh t i t mi gh t do s ome thing
+ 
+D es i gn dec is i on s
+F or the UI t o be c omple t e ther e ar e a f e w things th a t need t o be inclu ded s u ch 
+a s 
+L ong pu sh t o t urn o f f the de v i c 
+Ch ange the or ange t o a mor e neu tr al c olo
+F i x the me a s ur emen t logi c s o i t c an me a s ur e e v en when stabl
+A dd a s e t tings fl o 
+Inclu de bu z z er s ound when t emper a t ur e me a s ur emen t is don
+Inclu de s cr een s th a t sho w pr e v i ou s da ta
+
+Thes e up da t es w ill be inclu ded in the UI fl o w f or f u t ur e implemen ta ti on
+27
+
+
+===== Page 29 =====
+
+Appendix H-PDP
+
+
+===== Page 30 =====
+
+
+
+
+===== Page 31 =====
+
+
+
+
+===== Page 32 =====
+
+
+
+
+===== Page 33 =====
+
+Appendix I-Formal Approval Form
+
+
+===== Page 34 =====
+
+
+
+
+===== Page 35 =====
+
+Appendix J-Internship contract
+
+
+===== Page 36 =====
+
+
+
+
+===== Page 37 =====
+
+
+
+
+===== Page 38 =====
+
+
+
+
+===== Page 39 =====
+
+
+
+
+===== Page 40 =====
+
+
+
+
+===== Page 41 =====
+
+
+
+
+===== Page 42 =====
+
+
+
+
+===== Page 43 =====
+
+
+
+
+===== Page 44 =====
+
+
+
+
+===== Page 45 =====
+
+
+
+
+===== Page 46 =====
+
+Appendix K-Signed NDA
+
+
+===== Page 47 =====
+
+
+
+
+===== Page 48 =====
+
+
+
+
+===== Page 49 =====
+
+
+
+
+===== Page 50 =====
+
+
+
+
+===== Page 51 =====
+
+
+
+
+===== Page 52 =====
+
+
+
+
+===== Page 53 =====
+
+

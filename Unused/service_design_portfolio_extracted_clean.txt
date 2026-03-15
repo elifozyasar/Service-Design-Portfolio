@@ -1,0 +1,129 @@
+Elif Özyaşar
+RiseUp
+A smart morning routine system, designed to help families organize their mornings.
+The challenge
+Scenario Explorations and Personas
+Current smart technologies are mainly designed to help users control devices, while individuals actually strive for control over their lives. Achieving this requires a deep understanding of users' unique nuances and circumstances which was pursued through a data-enabled design approach and careful user testing in real-life family settings throughout the project.
+To scope the project, I explored how personalized smart home solutions could impact the lives of a fictional characters living in 2040. Scenario building and literature research identified morning routines as a promising area of intervention, given their influence on mental well-being and individuals' ability to focus throughout the day. Furthermore, coordinating morning routines within shared environments presents additional complexity due to conflicting schedules and family dynamics.
+System Thinking - Design Explorations
+Workshop/ Co-creation Session
+Iterating On The System
+Framing the Design Scope- Data Enabled design
+Diary Studies With Families
+User Research
+Service Design
+UI Design
+RiseUp tracks everyone's morning routines
+Emma wakes up late on the day she has an important test. She hears the sound of RiseUp
+She goes to take a shower
+Mila gets notified that Emma is late and skipping breakfast, she goes to take a look at RiseUP
+As Mila sees that she has time , she decides to go to kitchen and prepare breakfast for Emma aswell.
+After having breakfast with Mila, Emma plays her piano and leaves the house for her test
+She goes to look at her schedule. She values her time playing piano and she has to shower so she decides to skip breakfast as she has no time to prepare it.
+Through data enabled design approach, I decided to finalize the type of data the system would present according to the results of my second user tests.
+I conducted an initial user test with an exploratory goal: to understand the use case of RiseUp by creating a creative space with users.
+To test the concept within the target group and validate its quality, I planned a second user test involving families. The goal of this test was to understand if, and how, a system that collects and presents data about morning routines, alerts users when routines deviate and offers data analysis and visualizations, can influence users mornings. The first stage was dedicated to understanding morning routines of participants through data gathering with diary entries. Diary entries of the families were gathered through telegram using the data foundry bot.
+Analysing User Insights & Visualizing Data
+In Situ Validation - Digital Mockup
+Data Analysis
+Role
+Researcher/Designer
+Timeline
+02/2025-06/2025
+Tools
+Figma, Adobe CC, JavaScript, Arduino IDE, DataFoundry
+To take a step back and understand the various circumstances that the smart system would need to adapt to, I made scenarios on how a routine planner can work in a family environment and in times of disruptions.
+Such smart system that is used by multiple people needed to account for a wide range of factors. I created a simple flow and low fidelity prototypes to study the data flow. I decided on core functionalities that such a smart system would need to accommodate which were data gathering from devices inside the house, creating the routine and alerting individuals when disruptions/ conflicts occur.
+This setup was intended to encourage participants to step outside their personal routines and collaboratively build a shared sense of family during the session. I ran a within-subject study, having each participant experienced routine disruptions both with and without RiseUp. I observed participants' actions, specifically how they communicated with each other.
+I designed a more detailed data flow to explore how the data gathered by the smart home system can be used in presenting insights for users to manage their mornings in a more efficient way. Visualizing the interface was a helpful method to explore how RiseUp could support users in making more informed and mindful decisions about their routines.
+After the data collection, I visualised the data to discuss in individual interviews. As participants reflected on their routines, many noticed details they hadn't paid attention to before. This insight was brought back into the design process and resulted in a feature that presents data analysis for the users to reflect on. The visualizations would show deviations from their planned routines, skipped activities, and possible suggestions to support further reflection.
+In the second stage of the user test, participants were given access to an interactive digital prototype that visualized their morning routines. They engaged with the prototype by adjusting it to better fit their schedules. the system then generated a suggested routine that balanced their current and desired routines. At the end of each day, participants received a routine analysis summarizing their activities.
+It became clear that participants have high expectations for personalization, for it to know more than the actions they are taking in the moment. For the system to make such personalized suggestions, it must also take into account users' past behaviour, recurring patterns, external factors and the correlation between routines of others. This required a machine learning algorithm that was included in the final prototype
+The Final System
+Bathbobber
+An accessible and efficient way of tracking ice bath sessions.
+The challange
+Planning
+Bathbobber, a smart ice bath timer/thermometer , aims to provide an accessible way of tracking ice bath sessions or cold plunges. My design challenge was exploring and developing the interaction system of BathBobber, focusing on the data that will be communicated and how. I aimed to identify areas for improvement in the current design and the interaction, proposing solutions
+Because I worked on the project independently, I took on the role of product owner, managing the timeline and the considerations surrounding it. This approach helped structure communication with the client and balance my personal growth goals with the client's business objectives.
+I created elaborated scenarios to explore the interaction, see areas for improvement in user experience. I included personas with different characteristics, occupations, financial status, goals and values as these can influence their behavior towards the activity.
+Scenario Explorations and Personas
+Desk research/ Auto-ethnography
+Following a literature review to understand the topic and its main challenges, I explored the user perspective through a brief autoethnographic study, participating in ice baths myself and reflecting on the experience.
+Technical Documentation - List of Requirements
+Interaction Design
+User Research
+Interaction Design
+Service Design
+UI Design
+I started on creating the List of requirements (LoR) in which I documented each requirement that the product needs to meet including function, condition of use, material, ergonomics, standards/tests.
+I conducted various user tests to evaluate the interaction design, assess its intuitiveness, and identify potential problem areas.
+I worked on risk analysis to identify potential risks that can negatively affect the users and therefore the business. While making this document i also explored what must be communicated with users during the marketing phase.
+Risk Analysis
+System Design
+To define the structure of the system, I developed a comprehensive UI flow that mapped the possible states of the interface and the different interaction pathways available to the user. This system design outlined the underlying logic of the interface, clarifying how the system responds to user inputs and how different components and interactions connect within the service.
+Based on the defined system flow, I created UI visualisations to explore how these interactions would be presented to the user. These visualisations focused on clarity and intuitiveness, helping to communicate the interaction design and interface concept to both users and the client.
+Data Enabled Design - UI Explorations
+Role
+Product Owner/Designer
+Client
+Bathbobber
+Timeline
+09/2024-02/2025
+Tools
+Figma, Solidworks, Fusion 360, Adobe CC, Microsoft 365
+ShareSpot
+IOT lockers to borrow and lending items for low-income individuals
+The challange
+Research with citizens
+In Eindhoven, low-income residents face difficulties in accessing facilities due to expense constraints. Eindhoven Municipality gave us the challenge to design to help decrease the effects that low-income residents. We focused on the challenges residents face in terms of having access to necessary items and tools.
+Because I worked on the project independently, I took on the role of product owner, managing the timeline and the considerations surrounding it. This approach helped structure communication with the client and balance my personal growth goals with the client's business objectives.
+I created elaborated scenarios to explore the interaction, see areas for improvement in user experience. I included personas with different characteristics, occupations, financial status, goals and values as these can influence their behavior towards the activity.
+Desk research/ Auto-ethnography
+Following a literature review to understand the topic and its main challenges, I explored the user perspective through a brief autoethnographic study, participating in ice baths myself and reflecting on the experience.
+Technical Documentation - List of Requirements
+Interaction Design
+User Research
+Service Design
+UI Design
+I started on creating the List of requirements (LoR) in which I documented each requirement that the product needs to meet including function, condition of use, material, ergonomics, standards/tests.
+I conducted various user tests to evaluate the interaction design, assess its intuitiveness, and identify potential problem areas.
+I worked on risk analysis to identify potential risks that can negatively affect the users and therefore the business. While making this document i also explored what must be communicated with users during the marketing phase.
+Risk Analysis
+System Design
+To define the structure of the system, I developed a comprehensive UI flow that mapped the possible states of the interface and the different interaction pathways available to the user. This system design outlined the underlying logic of the interface, clarifying how the system responds to user inputs and how different components and interactions connect within the service.
+Based on the defined system flow, I created UI visualisations to explore how these interactions would be presented to the user. These visualisations focused on clarity and intuitiveness, helping to communicate the interaction design and interface concept to both users and the client.
+Data Enabled Design - UI Explorations
+Role
+Researcher/UX designer
+Team Members
+Paolo Pocol, Vlad Barbulescu, Clim van Seccelen, Radu Cretu
+Client
+Eindhoven Municipality
+Timeline
+09/2022-03/2023
+A user centred designer, interested in the service design field. I focus on understanding users through data and research to design personalized, intuitive solutions that truly meet their needs.
+RiseUp
+A smart morning routine system, designed to help families organize their mornings.
+Learn more-
+Bathbobber
+A smart morning routine system, designed to help families organize their mornings.
+Learn more-
+Interaction Design
+User Research
+Service Design
+UI Design
+ShareSpot
+Subsurface weight, specular roughness, diffuse maps generated with the procedure and manual techniques.
+See case study '
+03 / PROJECT NAME
+Experimental creature modeling for school project.
+Project WIP
+User Research
+Service Design
+UI Design
+Contact
+Work
+Contact
+Resume
+Elif
