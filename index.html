@@ -58,8 +58,8 @@
             pointer-events: none;
             overflow: hidden;
             background: var(--cream);
-            filter: blur(32px);
-            opacity: 0.16;
+            filter: none;
+            opacity: 0.1;
         }
 
         .mesh-ball {
@@ -187,9 +187,9 @@
 
         /* Keep project modal highly legible above the page background */
         #project-modal.glass-panel {
-            background: rgba(248, 246, 242, 0.97) !important;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(248, 246, 242, 0.98) !important;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
         }
 
         .glass-panel:hover {
@@ -274,18 +274,18 @@
         #logic-overlay.active {
             display: flex;
             animation: fadeOver 0.4s ease forwards;
-            backdrop-filter: blur(16px);
+            backdrop-filter: none;
         }
 
         @keyframes fadeOver {
             from {
                 opacity: 0;
-                backdrop-filter: blur(0px);
+                backdrop-filter: none;
             }
 
             to {
                 opacity: 1;
-                backdrop-filter: blur(16px);
+                backdrop-filter: none;
             }
         }
 
@@ -825,18 +825,29 @@ const projects = [
 ];
 
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ NAV SCROLL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+let navTicking = false;
+let navRaised = false;
 window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 40) {
-        navbar.style.background = 'rgba(248,246,242,0.92)';
-        navbar.style.backdropFilter = 'blur(12px)';
-        navbar.style.boxShadow = '0 1px 0 var(--border)';
-    } else {
-        navbar.style.background = 'transparent';
-        navbar.style.backdropFilter = '';
-        navbar.style.boxShadow = '';
-    }
-});
+    if (navTicking) return;
+    navTicking = true;
+    requestAnimationFrame(() => {
+        const navbar = document.getElementById('navbar');
+        const shouldRaise = window.scrollY > 40;
+        if (shouldRaise !== navRaised) {
+            navRaised = shouldRaise;
+            if (shouldRaise) {
+                navbar.style.background = 'rgba(248,246,242,0.92)';
+                navbar.style.backdropFilter = 'none';
+                navbar.style.boxShadow = '0 1px 0 var(--border)';
+            } else {
+                navbar.style.background = 'transparent';
+                navbar.style.backdropFilter = 'none';
+                navbar.style.boxShadow = '';
+            }
+        }
+        navTicking = false;
+    });
+}, { passive: true });
 
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ MODAL PROGRESS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 document.getElementById('project-modal').addEventListener('scroll', function() {
@@ -936,17 +947,17 @@ function renderProjects() {
                 ${p.coverImages ? `
                 <div style="display:block; padding:0; margin:0;">
                     <div style="overflow:hidden; width:100%; padding:0; margin:0;">
-                        <img class="project-image" src="${p.coverImages[0].url}" style="display:block; width:100%; height:auto; object-position:${p.coverImages[0].pos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
+                        <img class="project-image" src="${p.coverImages[0].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:auto; object-position:${p.coverImages[0].pos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
                             onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
                             onmouseover="this.style.transform='none'" onmouseout="this.style.transform='none';">
                     </div>
                     <div style="overflow:hidden; width:100%; padding:0; margin:0;">
-                        <img class="project-image" src="${p.coverImages[1].url}" style="display:block; width:100%; height:auto; object-position:${p.coverImages[1].pos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
+                        <img class="project-image" src="${p.coverImages[1].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:auto; object-position:${p.coverImages[1].pos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
                             onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
                             onmouseover="this.style.transform='none'" onmouseout="this.style.transform='none';">
                     </div>
                 </div>` : `
-                <img class="project-image" src="${p.image}" style="display:block; width:100%; height:auto; object-position:${p.imagePos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
+                <img class="project-image" src="${p.image}" loading="lazy" decoding="async" style="display:block; width:100%; height:auto; object-position:${p.imagePos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
                     onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
                     onmouseover="this.style.transform='none'" onmouseout="this.style.transform='none'">`}
             </div>
@@ -1017,7 +1028,7 @@ function updateStep(idx, projectId) {
             </div>
             <div style="display:flex; justify-content:center; width:100%;">
                 <button onclick="openLogicZoom('${images[2].url}')" style="background:transparent; border-radius:12px; overflow:hidden; border:1px solid var(--border); padding:0; cursor:zoom-in; display:block; ${isFlowFocusLayout ? 'max-width:700px;' : 'max-width:520px;'}">
-                    <img src="${images[2].url}" style="display:block; width:100%; height:auto; object-position:${images[2].pos || '50% 50%'}; cursor:zoom-in; ${/(uimap|ui\\s*flow1|uiflow1)/i.test(images[2].url) ? 'filter: blur(2px); transform: scale(1.005);' : ''}" loading="lazy" decoding="async"
+                    <img src="${images[2].url}" style="display:block; width:100%; height:auto; object-position:${images[2].pos || '50% 50%'}; cursor:zoom-in;" loading="lazy" decoding="async"
                         onmouseenter="figureZoomEnter(this)"
                         onmousemove="figureZoomMove(event, this)"
                         onmouseleave="figureZoomLeave(this)"
@@ -1324,7 +1335,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const isFinePointer = window.matchMedia("(pointer: fine)").matches;
     const isLowPowerDevice = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) || false;
     const enableCursorFx = !prefersReducedMotion && isFinePointer;
-    const useLiteCursor = enableCursorFx && isLowPowerDevice;
+    const useLiteCursor = enableCursorFx;
     const enableFx = false;
     const enableLenis = false;
 
