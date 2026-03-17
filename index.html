@@ -488,7 +488,7 @@
         <div class="hidden md:flex items-center gap-8">
             <button onclick="showSection('work')" id="nav-work" class="nav-link active">Work</button>
             <button onclick="showSection('about')" id="nav-about" class="nav-link">About</button>
-            <a href="mailto:hello@elif.design" class="nav-link">Contact</a>
+            <button onclick="scrollToContact()" id="nav-contact" class="nav-link" style="border:none; background:none;">Contact</button>
             <a href="Elif_Ozyasar_CV_February.pdf" download
                style="display:flex; align-items:center; gap:6px; background:var(--ink); color:#fff; font-size:12px; font-weight:500; letter-spacing:0.06em; padding:9px 20px; border-radius:100px; transition:opacity 0.2s; text-transform:uppercase; text-decoration:none;"
                onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
@@ -638,13 +638,13 @@
 </div>
 
 <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-<footer style="background:var(--ink); color:#fff; padding:100px 32px 56px;">
+<footer id="section-contact" style="background:var(--ink); color:#fff; padding:100px 32px 56px;">
     <div class="max-w-6xl mx-auto" style="display:flex; flex-direction:column; align-items:center; text-align:center;">
-        <h2 class="reveal" style="font-family:'Cormorant Garamond',serif; font-size:clamp(40px,7vw,80px); font-weight:500; font-style:italic; line-height:1.05; margin-bottom:48px; letter-spacing:-0.01em;">
+        <h2 class="reveal" style="font-family:'Cormorant Garamond',serif; font-size:clamp(40px,7vw,80px); font-weight:500; font-style:italic; line-height:1.05; margin-bottom:48px; letter-spacing:-0.01em; color:#fff;">
             Interested in working<br/>together?
         </h2>
         <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-bottom:64px;" class="reveal">
-            <a href="mailto:hello@elif.design"
+            <a href="mailto:elifozyasar@gmail.com"
                style="display:flex;align-items:center;gap:8px;background:#fff;color:var(--ink);font-size:13px;font-weight:500;padding:12px 24px;border-radius:100px;text-decoration:none;transition:background .2s;"
                onmouseover="this.style.background='var(--accent-bg)'" onmouseout="this.style.background='#fff'">
                 <i data-lucide="mail" style="width:16px; height:16px;"></i> Get in touch
@@ -735,7 +735,7 @@ const projects = [
         tags: ["Interaction and UI Design", "User Research", "Technical Documentation", "Product Ownership"],
         coverImages: [
             { url: "web-optimized/UIMAP_1600.jpg", pos: "50% 50%" },
-            { url: "pics service design portfolio/bathbobber/usertest2.jpg", pos: "50% 50%" }
+            { url: "pics service design portfolio/bathbobber/usertest.jpg", pos: "50% 50%" }
         ],
         image: "pics service design portfolio/bathbobber/cover.jpg",
         imagePos: "52% 46%",
@@ -785,7 +785,7 @@ const projects = [
         tags: ["Service Design", "User Research", "IoT", "Public Sector", "Business Strategy", "Social Design"],
         coverImages: [
             { url: "pics service design portfolio/sharespot/hero2.jpg", pos: "50% 50%" },
-            { url: "web-optimized/sharespot_mvp_1600.jpg", pos: "50% 50%" }
+            { url: "pics service design portfolio/sharespot/ui.jpg", pos: "50% 50%" }
         ],
         image: "pics service design portfolio/sharespot/hero.jpg",
         imagePos: "50% 55%",
@@ -876,6 +876,14 @@ function showSection(id) {
     const target = document.getElementById('section-' + id);
     if (target) {
         const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - 100;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
+}
+
+function scrollToContact() {
+    const target = document.getElementById('section-contact');
+    if (target) {
+        const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - 80;
         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
 }
