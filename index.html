@@ -1330,6 +1330,12 @@ function openModal(id) {
     lucide.createIcons();
     if (window.attachInteractiveListeners) window.attachInteractiveListeners();
     updateStep(0, id);
+
+    // Keep project URL shareable (for CV deep links).
+    const url = new URL(window.location.href);
+    url.searchParams.set('project', id);
+    url.hash = `project=${id}`;
+    history.replaceState({ project: id }, '', url.toString());
 }
 
 function closeModal() {
@@ -1339,6 +1345,12 @@ function closeModal() {
         window.lenis.start();
         if (window.ScrollTrigger) ScrollTrigger.refresh();
     }
+
+    // Remove deep-link params when closing modal.
+    const url = new URL(window.location.href);
+    url.searchParams.delete('project');
+    if (/^#project=/.test(url.hash)) url.hash = '';
+    history.replaceState({}, '', url.toString());
 }
 
 
@@ -1503,6 +1515,34 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     lucide.createIcons();
+
+    // Open project modal from URL on first load.
+    const startFromUrl = () => {
+        const url = new URL(window.location.href);
+        const qProject = url.searchParams.get('project');
+        const hMatch = (url.hash || '').match(/^#project=([a-z0-9_-]+)$/i);
+        const hashProject = hMatch ? hMatch[1] : null;
+        const projectId = qProject || hashProject;
+        if (projectId && projects.some(p => p.id === projectId)) {
+            openModal(projectId);
+        }
+    };
+    startFromUrl();
+
+    // Handle browser back/forward with project links.
+    window.addEventListener('popstate', () => {
+        const url = new URL(window.location.href);
+        const qProject = url.searchParams.get('project');
+        const hMatch = (url.hash || '').match(/^#project=([a-z0-9_-]+)$/i);
+        const hashProject = hMatch ? hMatch[1] : null;
+        const projectId = qProject || hashProject;
+        const modal = document.getElementById('project-modal');
+        if (projectId && projects.some(p => p.id === projectId)) {
+            openModal(projectId);
+        } else if (modal && !modal.classList.contains('hidden')) {
+            closeModal();
+        }
+    });
 });
 </script>
 </body>
