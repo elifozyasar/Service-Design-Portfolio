@@ -682,7 +682,7 @@ const projects = [
         tags: ["UX Research", "Diary Studies", "Data-Enabled Design", "Smart Home"],
         coverLayout: "horizontal",
         coverImages: [
-            { url: "pics service design portfolio/riseup/usertest1.jpg", pos: "54% 66%" },
+            { url: "web-optimized/riseup_usertest1_notop.jpg", pos: "54% 66%" },
             { url: "pics service design portfolio/riseup/interface2.jpg", pos: "50% 50%" }
         ],
         image: "pics service design portfolio/riseup/usertest1.jpg",
@@ -734,7 +734,7 @@ const projects = [
         methods: ["Persona & Scenario Mapping", "Auto-Ethnography", "Usability Testing", "Iterative Prototyping", "UI Flow Mapping", "FMEA Risk Analysis", "Requirements Documentation"],
         tags: ["Interaction and UI Design", "User Research", "Technical Documentation", "Product Ownership"],
         coverImages: [
-            { url: "web-optimized/UIMAP_1600.jpg", pos: "50% 50%" },
+            { url: "web-optimized/UIMAP_1600.jpg", pos: "50% 50%", fit: "contain", bg: "#2f333a" },
             { url: "pics service design portfolio/bathbobber/usertest2.jpg", pos: "50% 50%" }
         ],
         image: "pics service design portfolio/bathbobber/cover.jpg",
@@ -873,7 +873,9 @@ document.addEventListener('keydown', (e) => {
 
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ SCROLL SPY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function showSection(id) {
-    const target = document.getElementById('section-' + id);
+    const target = id === 'work'
+        ? document.getElementById('projects-container')
+        : document.getElementById('section-' + id);
     if (target) {
         const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - 100;
         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -950,13 +952,13 @@ function renderProjects() {
             <div style="overflow:hidden; background:transparent; padding:0; margin:0;">
                 ${p.coverImages ? `
                 <div style="display:grid; grid-template-rows:1fr 1fr; gap:0; padding:0; margin:0; width:100%; aspect-ratio:3/4;">
-                    <div style="overflow:hidden; width:100%; height:100%; padding:0; margin:0;">
-                        <img class="project-image" src="${p.coverImages[0].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:100%; object-fit:cover; object-position:${p.coverImages[0].pos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
+                    <div style="overflow:hidden; width:100%; height:100%; padding:0; margin:0; background:${p.coverImages[0].bg || 'transparent'};">
+                        <img class="project-image" src="${p.coverImages[0].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:100%; object-fit:${p.coverImages[0].fit || 'cover'}; object-position:${p.coverImages[0].pos || '50% 58%'}; background:${p.coverImages[0].bg || 'transparent'}; transition:transform 0.7s ease; margin:0; padding:0;"
                             onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
                             onmouseover="this.style.transform='none'" onmouseout="this.style.transform='none';">
                     </div>
-                    <div style="overflow:hidden; width:100%; height:100%; padding:0; margin:0;">
-                        <img class="project-image" src="${p.coverImages[1].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:100%; object-fit:cover; object-position:${p.coverImages[1].pos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
+                    <div style="overflow:hidden; width:100%; height:100%; padding:0; margin:0; background:${p.coverImages[1].bg || 'transparent'};">
+                        <img class="project-image" src="${p.coverImages[1].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:100%; object-fit:${p.coverImages[1].fit || 'cover'}; object-position:${p.coverImages[1].pos || '50% 58%'}; background:${p.coverImages[1].bg || 'transparent'}; transition:transform 0.7s ease; margin:0; padding:0;"
                             onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
                             onmouseover="this.style.transform='none'" onmouseout="this.style.transform='none';">
                     </div>
