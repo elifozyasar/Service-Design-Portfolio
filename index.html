@@ -682,7 +682,7 @@ const projects = [
         tags: ["UX Research", "Diary Studies", "Data-Enabled Design", "Smart Home"],
         coverLayout: "horizontal",
         coverImages: [
-            { url: "web-optimized/riseup_usertest1_notop.jpg", pos: "54% 66%" },
+            { url: "web-optimized/riseup_usertest1_notop2.jpg", pos: "54% 66%" },
             { url: "pics service design portfolio/riseup/interface2.jpg", pos: "50% 50%" }
         ],
         image: "pics service design portfolio/riseup/usertest1.jpg",
@@ -733,8 +733,9 @@ const projects = [
         tools: ["Figma", "Arduino IDE", "Solidworks", "Fusion 360", "Adobe CC", "Microsoft 365"],
         methods: ["Persona & Scenario Mapping", "Auto-Ethnography", "Usability Testing", "Iterative Prototyping", "UI Flow Mapping", "FMEA Risk Analysis", "Requirements Documentation"],
         tags: ["Interaction and UI Design", "User Research", "Technical Documentation", "Product Ownership"],
+        coverNatural: true,
         coverImages: [
-            { url: "web-optimized/UIMAP_1600.jpg", pos: "50% 50%", fit: "contain", bg: "#2f333a" },
+            { url: "web-optimized/UIMAP_1600.jpg", pos: "50% 50%" },
             { url: "pics service design portfolio/bathbobber/usertest2.jpg", pos: "50% 50%" }
         ],
         image: "pics service design portfolio/bathbobber/cover.jpg",
@@ -950,7 +951,19 @@ function renderProjects() {
             onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.08)'; this.style.borderColor='#C8BFB5';"
             onmouseout="this.style.transform=''; this.style.boxShadow=''; this.style.borderColor='var(--border)';">
             <div style="overflow:hidden; background:transparent; padding:0; margin:0;">
-                ${p.coverImages ? `
+                ${p.coverImages ? (p.coverNatural ? `
+                <div style="display:block; padding:0; margin:0; width:100%;">
+                    <div style="overflow:hidden; width:100%; padding:0; margin:0;">
+                        <img class="project-image" src="${p.coverImages[0].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:auto; object-position:${p.coverImages[0].pos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
+                            onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
+                            onmouseover="this.style.transform='none'" onmouseout="this.style.transform='none';">
+                    </div>
+                    <div style="overflow:hidden; width:100%; padding:0; margin:0;">
+                        <img class="project-image" src="${p.coverImages[1].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:auto; object-position:${p.coverImages[1].pos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
+                            onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
+                            onmouseover="this.style.transform='none'" onmouseout="this.style.transform='none';">
+                    </div>
+                </div>` : `
                 <div style="display:grid; grid-template-rows:1fr 1fr; gap:0; padding:0; margin:0; width:100%; aspect-ratio:3/4;">
                     <div style="overflow:hidden; width:100%; height:100%; padding:0; margin:0; background:${p.coverImages[0].bg || 'transparent'};">
                         <img class="project-image" src="${p.coverImages[0].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:100%; object-fit:${p.coverImages[0].fit || 'cover'}; object-position:${p.coverImages[0].pos || '50% 58%'}; background:${p.coverImages[0].bg || 'transparent'}; transition:transform 0.7s ease; margin:0; padding:0;"
@@ -962,7 +975,7 @@ function renderProjects() {
                             onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
                             onmouseover="this.style.transform='none'" onmouseout="this.style.transform='none';">
                     </div>
-                </div>` : `
+                </div>` ) : `
                 <div style="overflow:hidden; width:100%; aspect-ratio:3/4; padding:0; margin:0;">
                     <img class="project-image" src="${p.image}" loading="lazy" decoding="async" style="display:block; width:100%; height:100%; object-fit:cover; object-position:${p.imagePos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
                         onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
