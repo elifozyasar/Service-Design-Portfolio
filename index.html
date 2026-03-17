@@ -1331,10 +1331,9 @@ function openModal(id) {
     if (window.attachInteractiveListeners) window.attachInteractiveListeners();
     updateStep(0, id);
 
-    // Keep project URL shareable (for CV deep links).
+    // Keep project URL shareable (clean hash deep links).
     const url = new URL(window.location.href);
-    url.searchParams.set('project', id);
-    url.hash = `project=${id}`;
+    url.hash = id;
     history.replaceState({ project: id }, '', url.toString());
 }
 
@@ -1346,10 +1345,9 @@ function closeModal() {
         if (window.ScrollTrigger) ScrollTrigger.refresh();
     }
 
-    // Remove deep-link params when closing modal.
+    // Remove deep-link hash when closing modal.
     const url = new URL(window.location.href);
-    url.searchParams.delete('project');
-    if (/^#project=/.test(url.hash)) url.hash = '';
+    if (url.hash) url.hash = '';
     history.replaceState({}, '', url.toString());
 }
 
@@ -1516,13 +1514,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     lucide.createIcons();
 
-    // Open project modal from URL on first load.
+    // Open project modal from URL hash on first load.
     const startFromUrl = () => {
         const url = new URL(window.location.href);
-        const qProject = url.searchParams.get('project');
-        const hMatch = (url.hash || '').match(/^#project=([a-z0-9_-]+)$/i);
-        const hashProject = hMatch ? hMatch[1] : null;
-        const projectId = qProject || hashProject;
+        const projectId = (url.hash || '').replace(/^#/, '').trim();
         if (projectId && projects.some(p => p.id === projectId)) {
             openModal(projectId);
         }
@@ -1532,10 +1527,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Handle browser back/forward with project links.
     window.addEventListener('popstate', () => {
         const url = new URL(window.location.href);
-        const qProject = url.searchParams.get('project');
-        const hMatch = (url.hash || '').match(/^#project=([a-z0-9_-]+)$/i);
-        const hashProject = hMatch ? hMatch[1] : null;
-        const projectId = qProject || hashProject;
+        const projectId = (url.hash || '').replace(/^#/, '').trim();
         const modal = document.getElementById('project-modal');
         if (projectId && projects.some(p => p.id === projectId)) {
             openModal(projectId);
