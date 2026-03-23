@@ -952,40 +952,28 @@ function renderProjects() {
             style="background:var(--paper); border:1px solid var(--border); border-radius:16px; overflow:hidden; cursor:pointer; transition:all 0.4s; display:block; padding:0; margin:0; -webkit-appearance:none; appearance:none;"
             onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.08)'; this.style.borderColor='#C8BFB5';"
             onmouseout="this.style.transform=''; this.style.boxShadow=''; this.style.borderColor='var(--border)';">
-            <div style="overflow:hidden; background:transparent; padding:0; margin:0; line-height:0; font-size:0;">
-                ${p.coverImages ? (p.coverNatural ? `
-                <div style="display:block; padding:0; margin:0; width:100%; line-height:0; font-size:0;">
-                    <div style="overflow:hidden; width:100%; padding:0; margin:0;">
-                        <img class="project-image" src="${p.coverImages[0].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:auto; object-position:${p.coverImages[0].pos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0; vertical-align:top;"
-                            onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
-                            onmouseover="this.style.transform='none'" onmouseout="this.style.transform='none';">
-                    </div>
-                    <div style="overflow:hidden; width:100%; padding:0; margin:0;">
-                        <img class="project-image" src="${p.coverImages[1].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:auto; object-position:${p.coverImages[1].pos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0; vertical-align:top;"
-                            onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
-                            onmouseover="this.style.transform='none'" onmouseout="this.style.transform='none';">
-                    </div>
-                </div>` : `
-                <div style="display:grid; grid-template-rows:1fr 1fr; gap:0; padding:0; margin:0; width:100%; aspect-ratio:3/4; overflow:hidden;">
+            <div style="overflow:hidden; background:transparent; padding:0; margin:0; line-height:0; font-size:0; aspect-ratio:3/4;">
+                ${p.coverImages ? `
+                <div style="display:grid; grid-template-rows:1fr 1fr; gap:0; padding:0; margin:0; width:100%; height:100%; overflow:hidden;">
                     <div style="overflow:hidden; width:100%; height:100%; padding:0; margin:0; background:${p.coverImages[0].bg || 'transparent'};">
-                        <img class="project-image" src="${p.coverImages[0].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:100%; object-fit:${p.coverImages[0].fit || 'cover'}; object-position:${p.coverImages[0].pos || '50% 58%'}; background:${p.coverImages[0].bg || 'transparent'}; transition:transform 0.7s ease; margin:0; padding:0;"
+                        <img class="project-image" src="${p.coverImages[0].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:100%; object-fit:${p.coverImages[0].fit || 'cover'}; object-position:${p.coverImages[0].pos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
                             onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
                             onmouseover="this.style.transform='none'" onmouseout="this.style.transform='none'">
                     </div>
                     <div style="overflow:hidden; width:100%; height:100%; padding:0; margin:0; background:${p.coverImages[1].bg || 'transparent'};">
-                        <img class="project-image" src="${p.coverImages[1].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:100%; object-fit:${p.coverImages[1].fit || 'cover'}; object-position:${p.coverImages[1].pos || '50% 58%'}; background:${p.coverImages[1].bg || 'transparent'}; transition:transform 0.7s ease; margin:0; padding:0;"
+                        <img class="project-image" src="${p.coverImages[1].url}" loading="lazy" decoding="async" style="display:block; width:100%; height:100%; object-fit:${p.coverImages[1].fit || 'cover'}; object-position:${p.coverImages[1].pos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
                             onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
                             onmouseover="this.style.transform='none'" onmouseout="this.style.transform='none'">
                     </div>
-                </div>` ) : `
-                <div style="overflow:hidden; width:100%; aspect-ratio:3/4; padding:0; margin:0;">
+                </div>` : `
+                <div style="overflow:hidden; width:100%; height:100%; padding:0; margin:0;">
                     <img class="project-image" src="${p.image}" loading="lazy" decoding="async" style="display:block; width:100%; height:100%; object-fit:cover; object-position:${p.imagePos || '50% 58%'}; transition:transform 0.7s ease; margin:0; padding:0;"
                         onerror="this.src='https://via.placeholder.com/600x800?text=${p.title}'"
                         onmouseover="this.style.transform='none'" onmouseout="this.style.transform='none'">
                 </div>`}
             </div>
             <div style="padding:24px 28px 28px; display:flex; flex-direction:column; flex-grow:1;">
-                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; height:80px; align-content: flex-start; overflow:hidden;">
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; height:110px; align-content: flex-start; overflow:hidden;">
                     ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
                 </div>
                 <h3 style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; letter-spacing:-0.01em; margin-bottom:6px; color:var(--ink);">${p.title}</h3>
@@ -1541,6 +1529,132 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
