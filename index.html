@@ -710,7 +710,7 @@ const projects = [
         process: [
             { title: "Scenarios & Personas", desc: "To position the project, I explored how personalised smart home solutions could impact the lives of a fictional family living in 2040. Through scenario mapping, acting out situations, and literature research, morning routines emerged as a promising area of intervention, given their influence on mental wellbeing and people's ability to focus throughout the day.", imgs: [{ url: "pics service design portfolio/riseup/Group 5.png", pos: "50% 52%" }, { url: "pics service design portfolio/riseup/image.png", pos: "50% 50%" }], img: "pics service design portfolio/riseup/Group 5.png", pos: "50% 52%" },
             { title: "System Scoping & First Prototype", desc: "I mapped data flows between touchpoints, including possible conflicts, and included adaptive system alerts to understand what such a system would need to truly serve its users. I created a simple flow and low-fidelity prototypes to study how that data could work in practice. The prototype consisted of a planner that alerted users in times of conflict and provided an overview of their morning.", imgs: [{ url: "pics service design portfolio/riseup/Frame 35.png", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/Frame 34.png", pos: "50% 50%" }], img: "pics service design portfolio/riseup/Frame 35.png", pos: "50% 50%" },
-            { title: "Exploratory User Test", desc: "I conducted an initial exploratory user test to understand how RiseUp could be used in practice. Participants were encouraged to step outside their personal routines and collaboratively build a shared sense of family during the session. Using a within-subject study design, each participant experienced routine disruptions both with and without RiseUp. I closely observed how they communicated and made decisions together.", imgs: [{ url: "pics service design portfolio/riseup/ut1.jpg", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/ut2.heic", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/ut3.jpg", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/ut4.jpg", pos: "50% 50%" }], img: "pics service design portfolio/riseup/ut1.jpg", pos: "50% 50%" },
+            { title: "Exploratory User Test", desc: "I conducted an initial exploratory user test to understand how RiseUp could be used in practice. Participants were encouraged to step outside their personal routines and collaboratively build a shared sense of family during the session. Using a within-subject study design, each participant experienced routine disruptions both with and without RiseUp. I closely observed how they communicated and made decisions together.", imgs: [{ url: "pics service design portfolio/riseup/ut1.jpg", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/usertest2.jpg", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/ut3.jpg", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/ut4.jpg", pos: "50% 50%" }], img: "pics service design portfolio/riseup/ut1.jpg", pos: "50% 50%" },
             { title: "Design Iteration", desc: "The test revealed the need for more personalised data interpretation and a broader range of inputs to accommodate different kinds of users. I redesigned the data flow to explore how information gathered by the system could be presented as meaningful insights. Visualising the system helped me explore how RiseUp could support users in making more informed and mindful decisions about their routines.", imgs: [{ url: "pics service design portfolio/riseup/image 46.png", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/Frame 43.png", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/fbp - user flow - setup (1).jpg", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/fbp - user flow - disruption (1).jpg", pos: "50% 50%" }], img: "pics service design portfolio/riseup/image 46.png", pos: "50% 50%" },
             { title: "Diary Studies", desc: "To test the concept with real families and validate its quality, I planned a second user test. The goal was to understand if and how a system that collects and presents data about morning routines can actually influence people's mornings. The first stage focused on understanding participants' routines through diary entries, gathered daily via Telegram using a DataFoundry bot.", imgs: [{ url: "pics service design portfolio/riseup/Frame 46.png", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/image 30.png", pos: "50% 50%" }], img: "pics service design portfolio/riseup/Frame 46.png", pos: "50% 50%" },
             { title: "In-depth Interviews & Data-Enabled Design", desc: "After data collection, I visualised participants' routines to discuss in individual interviews. As people reflected on their own data, many noticed details they had never paid attention to before. These insights directly shaped a new reflective feature of the system: data visualisations showing deviations from planned routines, skipped activities, and personalised suggestions to support further reflection.", imgs: [{ url: "pics service design portfolio/riseup/Frame 55.png", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/Frame 56.png", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/Frame 85.png", pos: "50% 50%" }, { url: "pics service design portfolio/riseup/image 31.png", pos: "50% 50%" }], img: "pics service design portfolio/riseup/Frame 55.png", pos: "50% 50%" },
@@ -930,6 +930,23 @@ function observeReveal() {
     }, 10);
 }
 
+function normalizeAssetUrl(url) {
+    if (!url) return url;
+    if (/^(https?:|data:|blob:)/i.test(url)) return url;
+    return encodeURI(url);
+}
+
+function normalizeImageSources(root = document) {
+    root.querySelectorAll('img').forEach((img) => {
+        const raw = img.getAttribute('src');
+        if (!raw) return;
+        const normalized = normalizeAssetUrl(raw);
+        if (normalized && normalized !== raw) {
+            img.setAttribute('src', normalized);
+        }
+    });
+}
+
 function figureZoomEnter(img) {
     return;
 }
@@ -981,6 +998,7 @@ function renderProjects() {
             </div>
         </button>`;
     }).join('');
+    normalizeImageSources(container);
     observeReveal();
     lucide.createIcons();
 }
@@ -1083,6 +1101,7 @@ function updateStep(idx, projectId) {
             <h4 style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; margin-bottom:12px; color:var(--ink);">${step.title}</h4>
             <p style="font-size:15px; color:var(--muted); line-height:1.75; font-weight:300;">${step.desc}</p>
         </div>`;
+    normalizeImageSources(display);
 }
 
 function openModal(id) {
@@ -1318,6 +1337,7 @@ function openModal(id) {
         });
     }
     lucide.createIcons();
+    normalizeImageSources(modal);
     if (window.attachInteractiveListeners) window.attachInteractiveListeners();
     updateStep(0, id);
 
@@ -1343,7 +1363,7 @@ function closeModal() {
 
 
 function openLogicZoom(url) {
-    document.getElementById('zoom-img').src = url;
+    document.getElementById('zoom-img').src = normalizeAssetUrl(url);
     const conf = document.getElementById('zoom-confidential');
     if (conf) {
         const isConfidential = /(web-optimized\/image69_1600\.jpg|web-optimized\/UI_flow1_1600\.jpg|bathbobber\/Group 11\.png|bathbobber\/image 61\.png)/i.test(url);
