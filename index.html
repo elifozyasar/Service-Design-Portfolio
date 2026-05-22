@@ -463,6 +463,19 @@
             opacity: 1 !important;
             visibility: visible !important;
         }
+
+        @media (max-width: 1080px) {
+            .about-layout-grid {
+                grid-template-columns: 1fr !important;
+                gap: 18px !important;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .about-photo-card img {
+                height: 220px !important;
+            }
+        }
     
     </style>
 </head>
@@ -576,45 +589,54 @@
     <!-- â”€â”€â”€ ABOUT SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
     <div id="section-about">
         <section style="padding-top:160px; padding-bottom:120px;" class="px-8">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="reveal" style="font-size:clamp(40px,6vw,64px); font-weight:600; font-style:italic; line-height:1.1; margin-bottom:64px; letter-spacing:-0.01em;">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="reveal" style="font-size:clamp(40px,6vw,64px); font-weight:600; font-style:italic; line-height:1.1; margin-bottom:20px; letter-spacing:-0.01em;">
                     About Me
                 </h2>
-                <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr; gap:64px; transition-delay:100ms;">
-                    <div style="font-size:16px; line-height:1.8; color:var(--muted); font-weight:300; display:flex; flex-direction:column; gap:20px;">
-                        <p>I see myself as a reflective thinker before a designer. I'm interested in how data and research can inform design decisions and help uncover what people actually need.</p>
+                <p class="reveal" style="font-size:18px; color:var(--muted); line-height:1.8; max-width:820px; margin-bottom:56px; transition-delay:70ms;">
+                    I want this section to show more of who I am as a person, not only as a designer, from what drives my work to how I collaborate and what I am still learning.
+                </p>
 
-                        <p>Reflection is an important part of my process. It helps me question assumptions, understand my values, and stay mindful of how my decisions influence the final product. This curiosity and attention to detail is what draws me to research: the diary studies, in-context testing, and behavioural observations that reveal what's under the surface.</p>
+                <div class="reveal about-layout-grid" style="display:grid; grid-template-columns:1fr 0.9fr 1fr; gap:20px; align-items:start; transition-delay:120ms;">
+                    <div style="display:grid; gap:16px;">
+                        <article class="about-photo-card" style="border:1px solid var(--border); border-radius:18px; padding:10px;">
+                            <div style="width:100%; height:240px; border-radius:12px; border:1px dashed var(--border); background:linear-gradient(135deg, rgba(245,245,244,0.7), rgba(231,229,228,0.45)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;">Add Image 01</div>
+                            <h3 style="font-size:14px; color:var(--ink); font-weight:600; margin:10px 4px 6px;">Interested in what is below the surface</h3>
+                            <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:0 4px 4px;">I am not interested in what is visible on the surface. Whether it's a research question or a problem that looks simple from the outside, I find myself digging into the details, and it always proves to be fruitful, adding nuance to my work. Understanding what's really going on is always worth the extra time. Go big or go home.</p>
+                        </article>
+                        <article class="about-photo-card" style="border:1px solid var(--border); border-radius:18px; padding:10px;">
+                            <div style="width:100%; height:240px; border-radius:12px; border:1px dashed var(--border); background:linear-gradient(135deg, rgba(245,245,244,0.7), rgba(231,229,228,0.45)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;">Add Image 02</div>
+                            <h3 style="font-size:14px; color:var(--ink); font-weight:600; margin:10px 4px 6px;">Understanding different perspectives</h3>
+                            <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:0 4px 4px;">I am dedicated to understanding the people and context of what I am working for. I am all about putting myself in users' shoes, or in this case, an ice plunge (see Bathbobber project). For my Bathbobber project I got in an ice bath myself because I needed to actually feel what my users were going through.</p>
+                            <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:8px 4px 4px;">I enjoy working with people from different backgrounds. In teams, I am ready to adapt and build on perspectives that are different from my own. I think that is where the fun is.</p>
+                        </article>
+                    </div>
 
-                        <p>I care about services and designs that help shape everyday life. But more than any single domain, I'm interested in designing for real situations, messy, human ones.</p>
-
-                        <p>I also believe confidence comes from allowing yourself to be a beginner. Some of my best work has happened in the early, undefined stages of a project, where the problem isn't fully formed yet and there's still room for a new method, a new context, or a perspective. In teams, I'm drawn to that space of early exploration, and I find it easy to adapt and build on perspectives that are different from my own.</p>
-                                        </div>
-                    <div>
-                        <div style="margin-bottom:6px; display:flex; align-items:center; gap:16px; padding-bottom:20px; border-bottom:1px solid var(--border);">
-                            <span class="label label-accent">Toolkit</span>
+                    <article style="border:1px solid var(--border); border-radius:20px; padding:22px;">
+                        <div style="margin-bottom:10px; display:flex; align-items:center; gap:14px;">
+                            <span class="label label-accent">My Story</span>
                             <div class="rule"></div>
                         </div>
-                        <div style="margin-top:20px;">
-                            <div class="label label-accent" style="margin-bottom:10px;">Design & Research</div>
-                            <ul style="margin:0 0 20px 0; padding-left:18px; display:flex; flex-direction:column; gap:6px; color:var(--ink); font-size:14px; line-height:1.6;">
-                                <li>Service Blueprinting</li>
-                                <li>User Journey Mapping</li>
-                                <li>User Research & Data Analysis</li>
-                                <li>Qualitative & Quantitative Research Methods</li>
-                            </ul>
-                            <div class="label label-accent" style="margin-bottom:10px;">Tools & Prototyping</div>
-                            <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:6px; color:var(--ink); font-size:14px; line-height:1.6;">
-                                <li>Figma</li>
-                                <li>Solidworks</li>
-                                <li>Fusion 360</li>
-                                <li>Adobe CC</li>
-                                <li>Arduino IDE</li>
-                                <li>Processing & JavaScript</li>
-                                <li>Sketching</li>
-                                <li>Physical Prototyping</li>
-                            </ul>
+                        <div style="font-size:14px; line-height:1.8; color:var(--muted); font-weight:300; display:flex; flex-direction:column; gap:14px;">
+                            <p>I see myself as a reflective thinker before a designer. I'm interested in how data and research can inform design decisions and help uncover what people actually need. I show up for the people, problem and embrace the design space.</p>
+                            <p>Reflection is an important part of my process. It helps me question assumptions, understand my values, and stay mindful of how my decisions influence the final product.</p>
+                            <p>Here's a little of what that looks like:</p>
                         </div>
+                    </article>
+
+                    <div style="display:grid; gap:16px;">
+                        <article class="about-photo-card" style="border:1px solid var(--border); border-radius:18px; padding:10px;">
+                            <div style="width:100%; height:240px; border-radius:12px; border:1px dashed var(--border); background:linear-gradient(135deg, rgba(245,245,244,0.7), rgba(231,229,228,0.45)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;">Add Image 03</div>
+                            <h3 style="font-size:14px; color:var(--ink); font-weight:600; margin:10px 4px 6px;">Nothing exists in isolation</h3>
+                            <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:0 4px 4px;">Traveling is when I feel most present. Watching people live their everyday lives in places I'm just passing through sparks something in me. I notice more, I observe differently. That feeling of being a quiet outsider looking in is something I try to bring into my research too.</p>
+                            <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:8px 4px 4px;">Different places remind me that context shapes everything, and that no two people experience the same situation the same way. I carry that curiosity with me.</p>
+                        </article>
+                        <article class="about-photo-card" style="border:1px solid var(--border); border-radius:18px; padding:10px;">
+                            <div style="width:100%; height:240px; border-radius:12px; border:1px dashed var(--border); background:linear-gradient(135deg, rgba(245,245,244,0.7), rgba(231,229,228,0.45)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;">Add Image 04</div>
+                            <h3 style="font-size:14px; color:var(--ink); font-weight:600; margin:10px 4px 6px;">Always open to learn / get out of my comfort zone</h3>
+                            <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:0 4px 4px;">I believe confidence comes from allowing yourself to be a beginner. Some of my best work has happened in the early, undefined stages of a project, where the problem isn't fully formed yet and there's still room for a new method, a new context, or a perspective.</p>
+                            <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:8px 4px 4px;">I push myself out of my comfort zone, get comfortable being a beginner, and enjoy the process of learning.</p>
+                        </article>
                     </div>
                 </div>
             </div>
