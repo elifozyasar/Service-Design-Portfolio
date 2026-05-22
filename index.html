@@ -464,6 +464,35 @@
             visibility: visible !important;
         }
 
+        .about-hover-gallery {
+            position: relative;
+            height: 240px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .about-hover-gallery-track {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 200%;
+            height: 100%;
+            transition: transform 0.45s ease;
+        }
+
+        .about-hover-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 50%;
+            display: block;
+            border: 0;
+        }
+
+        .about-hover-gallery:hover .about-hover-gallery-track {
+            transform: translateX(-50%);
+        }
+
         @media (max-width: 1200px) {
             .about-layout-grid {
                 grid-template-columns: 1fr !important;
@@ -473,6 +502,10 @@
 
         @media (max-width: 620px) {
             .about-photo-card img {
+                height: 220px !important;
+            }
+
+            .about-hover-gallery {
                 height: 220px !important;
             }
         }
@@ -600,12 +633,17 @@
                 <div class="reveal about-layout-grid" style="display:grid; grid-template-columns:1fr 0.78fr 1fr; gap:30px; align-items:start; transition-delay:120ms;">
                     <div style="display:grid; gap:20px;">
                         <article class="about-photo-card" style="border:1px solid var(--border); border-radius:18px; padding:10px;">
-                            <div style="width:100%; height:240px; border-radius:12px; border:1px dashed var(--border); background:linear-gradient(135deg, rgba(245,245,244,0.7), rgba(231,229,228,0.45)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;">Add Image 01</div>
+                            <img src="magnify.jpg" alt="Magnifying glass" loading="lazy" decoding="async" style="width:100%; height:240px; object-fit:cover; border-radius:12px; border:1px solid var(--border); object-position:50% 50%;">
                             <h3 style="font-size:28px; color:var(--ink); font-weight:600; line-height:1.15; letter-spacing:-0.01em; margin:12px 4px 8px;">Interested in what is below the surface</h3>
                             <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:0 4px 4px;">I am not interested in what is visible on the surface. Whether it's a research question or a problem that looks simple from the outside, I find myself digging into the details, and it always proves to be fruitful, adding nuance to my work. Understanding what's really going on is always worth the extra time. Go big or go home.</p>
                         </article>
                         <article class="about-photo-card" style="border:1px solid var(--border); border-radius:18px; padding:10px;">
-                            <div style="width:100%; height:240px; border-radius:12px; border:1px dashed var(--border); background:linear-gradient(135deg, rgba(245,245,244,0.7), rgba(231,229,228,0.45)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;">Add Image 02</div>
+                            <div class="about-hover-gallery">
+                                <div class="about-hover-gallery-track">
+                                    <img src="icebath1.jpg" alt="Ice bath context 1" loading="lazy" decoding="async">
+                                    <img src="icebath2.jpeg" alt="Ice bath context 2" loading="lazy" decoding="async">
+                                </div>
+                            </div>
                             <h3 style="font-size:28px; color:var(--ink); font-weight:600; line-height:1.15; letter-spacing:-0.01em; margin:12px 4px 8px;">Understanding different perspectives</h3>
                             <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:0 4px 4px;">I am dedicated to understanding the people and context of what I am working for. I am all about putting myself in users' shoes, or in this case, an ice plunge (see Bathbobber project). For my Bathbobber project I got in an ice bath myself because I needed to actually feel what my users were going through.</p>
                             <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:8px 4px 4px;">I enjoy working with people from different backgrounds. In teams, I am ready to adapt and build on perspectives that are different from my own. I think that is where the fun is.</p>
@@ -614,7 +652,7 @@
 
                     <article style="border:1px solid var(--border); border-radius:20px; padding:24px;">
                         <div style="margin-bottom:10px; display:flex; align-items:center; gap:14px;">
-                            <span class="label label-accent">My Story</span>
+                            <span class="label label-accent" style="font-size:28px; line-height:1.1; letter-spacing:-0.01em; text-transform:none;">My Story</span>
                             <div class="rule"></div>
                         </div>
                         <div style="font-size:14px; line-height:1.8; color:var(--muted); font-weight:300; display:flex; flex-direction:column; gap:14px;">
@@ -626,13 +664,18 @@
 
                     <div style="display:grid; gap:20px;">
                         <article class="about-photo-card" style="border:1px solid var(--border); border-radius:18px; padding:10px;">
-                            <div style="width:100%; height:240px; border-radius:12px; border:1px dashed var(--border); background:linear-gradient(135deg, rgba(245,245,244,0.7), rgba(231,229,228,0.45)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;">Add Image 03</div>
+                            <img src="travel1.jpeg" alt="Travel context" loading="lazy" decoding="async" style="width:100%; height:240px; object-fit:cover; border-radius:12px; border:1px solid var(--border); object-position:50% 50%;">
                             <h3 style="font-size:28px; color:var(--ink); font-weight:600; line-height:1.15; letter-spacing:-0.01em; margin:12px 4px 8px;">Nothing exists in isolation</h3>
                             <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:0 4px 4px;">Traveling is when I feel most present. Watching people live their everyday lives in places I'm just passing through sparks something in me. I notice more, I observe differently. That feeling of being a quiet outsider looking in is something I try to bring into my research too.</p>
                             <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:8px 4px 4px;">Different places remind me that context shapes everything, and that no two people experience the same situation the same way. I carry that curiosity with me.</p>
                         </article>
                         <article class="about-photo-card" style="border:1px solid var(--border); border-radius:18px; padding:10px;">
-                            <div style="width:100%; height:240px; border-radius:12px; border:1px dashed var(--border); background:linear-gradient(135deg, rgba(245,245,244,0.7), rgba(231,229,228,0.45)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;">Add Image 04</div>
+                            <div class="about-hover-gallery">
+                                <div class="about-hover-gallery-track">
+                                    <img src="gym1.png" alt="Gym practice context 1" loading="lazy" decoding="async">
+                                    <img src="gym2.jpeg" alt="Gym practice context 2" loading="lazy" decoding="async">
+                                </div>
+                            </div>
                             <h3 style="font-size:28px; color:var(--ink); font-weight:600; line-height:1.15; letter-spacing:-0.01em; margin:12px 4px 8px;">Always open to learn / get out of my comfort zone</h3>
                             <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:0 4px 4px;">I believe confidence comes from allowing yourself to be a beginner. Some of my best work has happened in the early, undefined stages of a project, where the problem isn't fully formed yet and there's still room for a new method, a new context, or a perspective.</p>
                             <p style="font-size:13px; line-height:1.7; color:var(--muted); margin:8px 4px 4px;">I push myself out of my comfort zone, get comfortable being a beginner, and enjoy the process of learning.</p>
@@ -1571,6 +1614,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
