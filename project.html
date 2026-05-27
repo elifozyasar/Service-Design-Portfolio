@@ -529,12 +529,6 @@
             }
         }
 
-        @media (max-width: 900px) {
-            .about-skills-grid {
-                grid-template-columns: 1fr !important;
-            }
-        }
-
         @media (max-width: 620px) {}
     
     </style>
@@ -655,39 +649,6 @@
                     <p>I see myself as a reflective thinker before a designer. I'm interested in how data and research can inform design decisions and help uncover what people actually need. I show up for the people, problem and embrace the design space.</p>
                     <p>Reflection is an important part of my process. It helps me question assumptions, understand my values, and stay mindful of how my decisions influence the final product.</p>
                     <p>Here's a little of what that looks like:</p>
-                </div>
-
-                <div class="reveal" style="margin-bottom:40px; transition-delay:95ms;">
-                    <article style="border:2px solid var(--ink); box-shadow:6px 6px 0px var(--border); background:var(--paper); padding:22px 24px; border-radius:0;">
-                        <div style="display:flex; align-items:center; gap:14px; margin-bottom:16px;">
-                            <span class="label label-accent" style="color:var(--accent);">Toolkit</span>
-                            <div class="rule"></div>
-                        </div>
-                        <div class="about-skills-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-                            <div>
-                                <div class="label" style="margin-bottom:10px; color:var(--ink);">Design & Research</div>
-                                <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:8px; color:var(--ink); font-size:14px; line-height:1.6;">
-                                    <li>Service Blueprinting</li>
-                                    <li>User Journey Mapping</li>
-                                    <li>User Research & Data Analysis</li>
-                                    <li>Qualitative & Quantitative Research Methods</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <div class="label" style="margin-bottom:10px; color:var(--ink);">Tools & Prototyping</div>
-                                <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:8px; color:var(--ink); font-size:14px; line-height:1.6;">
-                                    <li>Figma</li>
-                                    <li>Solidworks</li>
-                                    <li>Fusion 360</li>
-                                    <li>Adobe CC</li>
-                                    <li>Arduino IDE</li>
-                                    <li>Processing & JavaScript</li>
-                                    <li>Sketching</li>
-                                    <li>Physical Prototyping</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
                 </div>
 
                 <div class="reveal about-layout-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:start; transition-delay:120ms;">
@@ -1453,6 +1414,10 @@ function openModal(id) {
 }
 
 function closeModal() {
+    if (window.location.pathname.toLowerCase().endsWith('/project.html')) {
+        window.location.href = 'index.html#work';
+        return;
+    }
     document.getElementById('project-modal').classList.add('hidden');
     document.body.classList.remove('no-scroll');
     if (window.lenis) {
@@ -1482,6 +1447,19 @@ function closeLogicZoom() {
 
 // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ INIT Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 document.addEventListener("DOMContentLoaded", () => {
+    const isStandaloneProjectPage = window.location.pathname.toLowerCase().endsWith('/project.html');
+    if (isStandaloneProjectPage) {
+        const projectId = new URL(window.location.href).searchParams.get('id');
+        const nav = document.getElementById('navbar');
+        if (nav) nav.style.display = 'none';
+        if (projectId && projects.some(p => p.id === projectId)) {
+            openModal(projectId);
+        } else {
+            window.location.href = 'index.html#work';
+        }
+        return;
+    }
+
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isFinePointer = window.matchMedia("(pointer: fine)").matches;
     const isLowPowerDevice = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) || false;
