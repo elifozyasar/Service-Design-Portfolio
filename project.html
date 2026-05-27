@@ -16,8 +16,8 @@
     <style>
 
         :root {
-            --cream: #F0EDE6;
-            --paper: #FAF7F2;
+            --cream: #FFFFFF;
+            --paper: #FFFFFF;
             --border: #C4A8B0;
             --ink: #1A0A0F;
             --muted: #5A4A4E;
@@ -39,8 +39,8 @@
             inset: 0;
             z-index: 9998;
             pointer-events: none;
-            opacity: 0.008;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: 0;
+            background-image: none;
             background-size: 180px 180px;
         }
 
@@ -155,7 +155,7 @@
         }
 
         .project-card:hover .project-image {
-            transform: scale(1.03);
+            transform: none;
         }
 
         .project-card-shine {
@@ -1632,6 +1632,8 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
+
 
 
 
